@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="backgroundGradient">
+  </div>
+  <main>
+    <nav>
+      <navbar [config]="navLinks" (navClicked)="clickedNav($event)" ></navbar>
+    </nav>
+    <div class="userCard">
+      <user-card></user-card>
+    </div>
+    <div class="pages">
+      <ng-container #pages></ng-container>
+    </div>
+  </main>
+</div>

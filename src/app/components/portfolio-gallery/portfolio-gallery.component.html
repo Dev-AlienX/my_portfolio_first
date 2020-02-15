@@ -1,0 +1,35 @@
+<div class="gallery-wrapper">
+  <header>
+    <div class="title">
+      <p *ngIf="!title === false">Recent</p><span>Works</span>
+    </div>
+    <ul class="gallery-btn">
+      <li *ngFor="let btn of filterBtn">
+        <a href="javascript:void(0)" [ngClass]="{'active': btn.active === true}" (click)="filterGallery(btn.name , $event)">
+          {{btn.name}}
+        </a>
+      </li>
+    </ul>
+  </header>
+  <main>
+    <div class="row" #cols [ngStyle]="{'max-height.px': totalColHeight}" >
+      <div class="col" *ngFor="let item of data">
+        <div class="box-item">
+          <div class="image">
+            <a href="javascript:void(0)" class="has-popup-music">
+              <img src="{{item.img}}" alt="">
+              <span class="info">
+                <i class="fas {{item.icon}} fa-2x"></i>
+              </span>
+            </a>
+          </div>
+          <div class="desc">
+            <a href="javascript:void(0)" class="name has-popup">{{item.name}}</a>
+            <div class="category">{{item.category}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <ng-container #modal></ng-container>
+</div>

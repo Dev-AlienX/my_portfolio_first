@@ -1,0 +1,98 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixin';
+@import '../../assets/scss/variables';
+
+
+.work-container {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: $borderRadious;
+    border-bottom-right-radius: $borderRadious;
+    background: $light;
+
+    .row {
+        .col {
+            .box-item {
+                overflow: visible;
+                position: relative;
+                text-align: center;
+
+                .image {
+                    overflow: hidden;
+                    z-index: 2;
+                    position: relative;
+
+                    a {
+                        display: block;
+                        font-size: 0;
+
+                        &:hover {
+                            text-decoration: none;
+                            color: #78cc6d;
+                        }
+
+                        img {
+                            transform: scale(1);
+                            position: relative;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        .info {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            opacity: 0;
+                            text-align: center;
+                            transition: all 0.3s ease 0s;
+
+                            &::before {
+                                background: linear-gradient(135deg, rgba(120, 204, 109, 0.4) 0%, rgba(120, 204, 109, 0.01) 100%);
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                transition: all 0.3s ease 0s;
+                            }
+                        }
+                    }
+                }
+
+                .desc {
+                    padding: 15px 0 0 0;
+                    position: relative;
+
+                    .name {
+
+                        padding: 0;
+                        display: block;
+                        font-size: 17px;
+                        color: #323232;
+                        font-weight: 500;
+                        text-transform: none;
+                        word-break: break-word;
+                        transition: all 0.3s ease 0s;
+                        //optional
+                        text-decoration: none;
+                        opacity: 1;
+                        outline: none;
+
+                    }
+
+                    .category {
+                        font-size: 14px;
+                        margin: 0;
+                        color: #999999;
+                        text-transform: none;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}

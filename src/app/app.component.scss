@@ -1,0 +1,152 @@
+@import '../assets/scss/colors';
+@import '../assets/scss/mixin';
+@import '../assets/scss/variables';
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+
+    .backgroundGradient {
+        background: $bodyBackground;
+        @include fullScreen();
+        position: fixed;
+        top: 0;
+        left: 0;
+
+
+    }
+
+    main {
+        // margin: 8vh 6vw;
+        // max-height: 674px;
+        background: transparent;
+        display: flex;
+        justify-content: flex-start;
+        position: relative;
+        width: 100%;
+        height: auto;
+        // height: 84vh;
+        max-width: 1268px;
+        max-height: 674px;
+        flex-wrap: unset;
+
+        @media (max-width: 1300px) {
+            margin: 5vh 3vw;
+            height: 90vh;
+        }
+
+        @media (min-width: 1301px) {
+            margin: 5vh 3vw;
+            height: 90vh;
+        }
+
+        @media (max-width: 1199px) {
+            // padding: 0 15px 0 100px;
+            // top: 20px;
+            // left: 0;
+            width: auto;
+            max-width: 700px;
+            max-height: initial;
+            height: auto;
+            transform: none;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 560px) {
+            width: 100%;
+            padding: 67px 6px 0 6px;
+            margin: unset;
+            height: auto;
+            flex-wrap: wrap;
+            // nav {
+            //     position: fixed;
+            //     left: 0;
+            //     top: 0;
+            //     width: 100%;
+            //     height: 80px;
+            // }
+            // .userCard {
+            //     position: relative;
+            //     top: 80px;
+            //     width: 480px;
+            //     height: 100%;
+            //     box-shadow: $UserShadow;
+            //     z-index: 21;
+            //     background: transparent;
+            //     margin-left: 8px;
+            //     flex-grow: 1;
+            // }
+            // .pages {
+            //     position: relative;
+            //     width: 100%;
+            //     height: auto;
+            //     flex-grow: 1;
+            //     padding: 15px 0;
+            //     background: transparent;
+            // }
+        }
+
+
+
+        nav {
+            position: relative;
+            left: 0;
+            top: 15px;
+            width: 80px;
+            flex-basis: 80px;
+            z-index: 22;
+
+            @media (max-width : 560px) {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    @include box(auto, 100%);
+            }
+        }
+
+        .userCard {
+            position: relative;
+            width: 480px;
+            height: 100%;
+            box-shadow: $UserShadow;
+            z-index: 21;
+            background: transparent;
+            margin-left: 8px;
+            
+            @media (max-width : 560px) {
+                position: relative;
+                // top: 80px;
+                width:100%;
+                height: auto;
+                box-shadow: $UserShadow;
+                z-index: 21;
+                background: transparent;
+                flex-grow: 1;
+                margin-left: unset;
+            }
+        }
+
+        .pages {
+            position: relative;
+            width: 100%;
+            height: auto;
+            flex-grow: 1;
+            padding: 15px 0;
+            background: transparent;
+
+            @media (max-width : 560px) {
+                 position: relative;
+                width: 100%;
+                height: auto;
+                flex-grow: 1;
+                padding: 7px 0;
+                background: transparent;
+            }
+        }
+    }
+}

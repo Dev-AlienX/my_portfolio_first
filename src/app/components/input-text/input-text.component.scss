@@ -1,0 +1,26 @@
+input,textarea{
+    padding: 0 15px;
+    font-size: 16px;
+    height: 50px;
+    color: #323232;
+    border: 2px solid #eeeeee;
+    margin: 0;
+	display: block;
+	font-family: 'Poppins';
+	width: 100%;
+	background: none;
+	appearance: none;
+	resize: none;
+	outline: 0;
+	transition: all 0.3s ease 0s;
+    border-radius: 6px;
+    
+    &:focus{
+        color: #323232;
+        border: 2px solid #78cc6d;
+    }
+}
+textarea{
+    padding: 15px;
+    height: 94px;
+}

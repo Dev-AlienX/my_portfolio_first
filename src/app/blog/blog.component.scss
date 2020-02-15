@@ -1,0 +1,206 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixin';
+@import '../../assets/scss/variables';
+
+
+.blog-container {
+    @include fullBox();
+    // max-width: 644px;
+    border-top-right-radius: $borderRadious;
+    border-bottom-right-radius: $borderRadious;
+    background: $light;
+    overflow-y: scroll;
+    position: $rel;
+
+    .blog-header,
+    .blog-footer {
+        position: sticky;
+        @include box(30px, 100%);
+        z-index: 20;
+        background-color: $light;
+    }
+
+    .blog-header {
+        top: 0;
+    }
+
+    .blog-footer {
+        bottom: 0;
+    }
+
+    header {
+        text-transform: capitalize;
+        position: $rel;
+        height: 80px;
+        @include flex();
+        width: 100%;
+        padding-left: 29px;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: -30px;
+
+        &::after {
+            @include bottomgradientBorder();
+            background-image: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
+        }
+
+        p {
+            color: $primary;
+            position: $rel;
+            background: transparent;
+            z-index: 4;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-radius: 16px;
+                background-image: linear-gradient(135deg, rgba(120, 204, 109, 0.4) 0%, rgba(120, 204, 109, 0.01) 100%);
+                left: -12px;
+                top: 0;
+                z-index: 3;
+            }
+        }
+
+        span {
+            padding-left: 5px;
+        }
+
+        &.jointed {
+            span {
+                padding-left: unset;
+                text-transform: lowercase;
+            }
+        }
+    }
+
+    main {
+        position: $rel;
+
+        section {
+            position: $rel;
+            @include padding(30px);
+
+            .blog-image {
+                @include box (300px, 100%);
+                overflow: hidden;
+                position: $rel;
+                cursor: pointer;
+                display: inline-block;
+
+                .image {
+                    @include fullBox();
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    transition: all ease 0.3s;
+
+                    &::before {
+                        @include fullBox();
+                        content: '';
+                        position: $abs;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                        opacity: 0;
+                        background: $primary;
+                        // transition: all ease-in 1s;
+                    }
+                }
+
+                .date-box {
+                    position: $abs;
+                    left: 20px;
+                    bottom: 20px;
+                    @include box(50px);
+                    background-color: $light;
+                    padding: 10px 0 0 0;
+                    font-size: 11px;
+                    line-height: 11px;
+                    color: #171717;
+                    text-align: $center;
+                    font-weight: 500;
+                    text-transform: uppercase;
+
+                    p {
+                        display: block;
+                        font-size: 20px;
+                        line-height: 20px;
+                        color: #171717;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .text {
+                position: relative;
+                text-align: center;
+                padding-top: 15px;
+
+                h5 {
+                    padding-bottom: 5px;
+                    font-size: 17px;
+                    text-transform: none;
+                    display: block;
+                    color: #323232;
+                    font-weight: 500;
+                    word-break: break-word;
+                    transition: all 0.3s ease 0s;
+                    line-height: 1.55;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                    color: #999999;
+                    text-transform: none;
+                    font-weight: 300;
+                }
+            }
+
+            &:nth-child(1) {
+                .blog-image .image {
+                    background-image: url(../../assets/img/blog1.jpg);
+                }
+            }
+
+            &:nth-child(2) {
+                .blog-image .image {
+                    background-image: url(../../assets/img/blog2.jpg);
+                }
+            }
+
+            &:nth-child(3) {
+                .blog-image .image {
+                    background-image: url(../../assets/img/blog3.jpg);
+                }
+            }
+
+            &:hover {
+                .blog-image .image {
+                    transform: scale(1.05);
+                    transition: all ease-in 0.3s;
+
+                    &::before {
+
+                        display: block;
+                        opacity: 0.4;
+                        transition: all ease-in 0.3s;
+                    }
+                }
+
+                .text h5 {
+                    color: $primary;
+                }
+            }
+
+            &::after{
+                @include borderXLineFull('bottom');
+            }
+        }
+    }
+
+}

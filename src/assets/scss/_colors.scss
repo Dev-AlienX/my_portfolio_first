@@ -1,0 +1,16 @@
+/******************Main colors*******************/
+$primary:rgb(120, 204, 109); //green
+$secendary:rgb(80, 163, 162); //blue
+$dark:rgba(0, 0, 0); //black
+$light:rgba(255, 255, 255); //white
+/******************Main colors*******************/
+
+/******************Content colors*******************/
+$borderColor:darken($light, 5%);
+$grayText:lighten($dark, 64%);
+$bodyBackground:linear-gradient(to bottom right, $secendary 0%, $primary 100%);
+
+/******************Content colors*******************/
+
+
+

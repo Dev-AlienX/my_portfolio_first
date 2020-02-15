@@ -1,0 +1,88 @@
+/*****************Reset scss********************/
+@import './assets/scss/reset';
+/*****************Reset scss********************/
+/****************font import*********************/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+/****************font import*********************/
+/******************scss import*******************/
+@import './assets/scss/colors';
+@import './assets/scss/mixin';
+@import './assets/scss/variables';
+@import './assets/scss/grid';
+
+/******************scss import*******************/
+
+/******************common class*******************/
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+
+}
+
+
+
+/******************common class*******************/
+/******************* grid ******************/
+.row {
+    @include flexMaster (100%, unset, unset, unset, $wrap, unset);
+
+
+}
+
+.col {
+    // @include flexContent(1);
+    @include padding(30px);
+}
+
+// .col-1 {
+//      @include flexContent(0, 8.333333%);
+// }
+
+/******************* grid ******************/
+/******************gradient border*******************/
+
+
+
+/******************gradient border*******************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/

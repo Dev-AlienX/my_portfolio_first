@@ -1,0 +1,449 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variables';
+
+.progress-bar-wrapper {
+    position: $rel;
+    @include box (auto, 100%);
+
+    .lable {
+        color: #626262;
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .progress-bar {
+        position: $rel;
+        @include box (4px, 100%);
+        display: block;
+        background-color: #d8dbe2;
+
+        .percentage {
+            position: $abs;
+            left: 0;
+            top: 0;
+            width: 0%;
+            height: 100%;
+            background: $primary;
+            transition: all 0.3s ease 0s;
+        }
+    }
+}
+
+.progress-dots-wrapper {
+    position: $rel;
+    @include box (auto, 100%);
+
+    .lable {
+        color: #626262;
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .progress-dots {
+        position: $rel;
+        @include box (14px, 100%);
+        display: block;
+
+
+
+        .progress-dot {
+            position: $abs;
+            @include flexMaster (100%, 100%, $flexSpace, $center);
+
+            div {
+                @include box (14px);
+                @include border-radious(100%);
+                background-color: #d8dbe2;
+
+
+                &.active {
+                    background-color: $primary;
+
+                }
+            }
+        }
+
+        // .progress-dots-back {
+        //     @include flexMaster (100%, 100%, $flexSpace, $center);
+
+        //     div {
+        //         background-color: #d8dbe2;
+        //     }
+
+        // }
+
+        // .progress-dots-front {
+        //     @include flexMaster (100%, 100%, $flexLeft, $center);
+
+        //     div {
+        //         background-color: $primary;
+        //     }
+
+        // }
+    }
+}
+
+.progress-donut-wrapper {
+    position: $rel;
+    @include box (auto, 100%);
+    // padding-bottom: 40px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 0;
+    padding-bottom: 40px;
+
+    // padding: 20px 0;
+    .name {
+        font-size: 14px;
+        line-height: 14px;
+        color: #626262;
+        position: absolute;
+        top: 129px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .progress {
+        margin: 0 auto;
+        position: $rel;
+        font-size: 90px;
+        @include box(90px);
+        border-radius: 90px;
+        background: #eeeeee;
+        display: block;
+
+
+        span {
+            position: $abs;
+            left: 0;
+            top: 0;
+            @include box (100%);
+            line-height: 90px;
+            font-size: 17px;
+            color: #323232;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .slice {
+            position: $abs;
+            width: 1em;
+            height: 1em;
+            clip: rect(0em, 1em, 1em, 0.5em);
+        }
+
+        .fill {
+            border: 0.09em solid #78cc6d;
+            transform: rotate(180deg);
+            position: $abs;
+            width: 1em;
+            height: 1em;
+            clip: rect(0em, 0.5em, 1em, 0em);
+            border-radius: 50%;
+        }
+
+        .bar {
+            border: 0.09em solid #78cc6d;
+            position: $abs;
+            width: 1em;
+            height: 1em;
+            clip: rect(0em, 0.5em, 1em, 0em);
+            border-radius: 50%;
+
+        }
+
+        &::after {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            display: block;
+            content: " ";
+            border-radius: 50%;
+            background-color: #ffffff;
+            width: 0.82em;
+            height: 0.82em;
+        }
+
+        .slice {
+            clip: rect(auto, auto, auto, auto);
+        }
+
+        &.p0 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                display: none;
+                transform: rotate(324deg);
+            }
+        }
+
+        &.p5 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(18deg);
+            }
+        }
+
+        &.p10 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(36deg);
+            }
+        }
+
+        &.p15 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(54deg);
+            }
+        }
+
+        &.p20 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(72deg);
+            }
+        }
+
+        &.p25 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(90deg);
+            }
+        }
+
+        &.p30 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(108deg);
+            }
+        }
+
+        &.p35 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(126deg);
+            }
+        }
+
+        &.p40 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(144deg);
+            }
+        }
+
+        &.p45 {
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(162deg);
+            }
+        }
+
+        &.p50 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                display: none;
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(180deg);
+            }
+        }
+
+        &.p55 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(198deg);
+            }
+        }
+
+        &.p60 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(216deg);
+            }
+
+        }
+
+        &.p65 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(234deg);
+            }
+
+        }
+
+        &.p70 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(252deg);
+            }
+        }
+
+        &.p75 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(270deg);
+            }
+
+        }
+
+        &.p80 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(288deg);
+            }
+        }
+
+        &.p85 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(306deg);
+            }
+
+        }
+
+        &.p90 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(324deg);
+            }
+
+        }
+
+        &.p95 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(342deg);
+            }
+        }
+
+        &.p100 {
+            .slice {
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .fill {
+                transform: rotate(180deg);
+            }
+
+            .bar {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+<div class="progress-bar-wrapper" *ngIf="type === 'bar'">
+  <div class="lable">{{name}}</div>
+  <div class="progress-bar">
+    <div class="percentage" [ngStyle]="{'width.%': value}"></div>
+  </div>
+</div>
+<div class="progress-dots-wrapper" *ngIf="type === 'dots'">
+  <div class="lable">{{name}}</div>
+
+  <div class="progress-dots">
+    <div class="progress-dot">
+      <div *ngFor="let item of circleBack" [ngClass]="{'active': item.active}"></div>
+    </div>
+  </div>
+</div>
+<div class="progress-donut-wrapper" *ngIf="type === 'donut'">
+  <div class="name">{{name}}</div>
+  <div class="progress {{donutValue}}">
+    <span>{{value}}</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div>
+</div>

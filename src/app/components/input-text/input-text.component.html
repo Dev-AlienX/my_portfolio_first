@@ -1,0 +1,2 @@
+<input *ngIf="type !== 'textarea'" [type]="type" [(ngModel)]="inputValue" (ngModelChange)="inputValueChange.emit(inputValue)" [placeholder]="placeholder">
+<textarea *ngIf="type === 'textarea'" [(ngModel)]="inputValue" (ngModelChange)="inputValueChange.emit(inputValue)" [placeholder]="placeholder"></textarea>

@@ -1,0 +1,120 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixin';
+@import '../../assets/scss/variables';
+
+.user-container {
+    width: 100%;
+    height: 100%;
+    min-width: 480px;
+    border-radius: $borderRadious;
+    background: $light;
+    position: relative;
+
+    @media (max-width: 560px) {
+        width: 100%;
+        height: 600px;
+        min-width: unset; 
+        border-radius: 4px;
+        background: white;
+        position: relative;
+    }
+
+    .user-image {
+        background-image: linear-gradient(to right, #9cadbe, #e3e7ef);
+        width: 100%;
+
+        height: 317px;
+        padding-top: 40px;
+        display: flex;
+        justify-content: center;
+        border-radius: $borderRadious;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .clippy {
+        clip-path: polygon(100% -1%, 100% 87%, 46% 100%, -1% 84%, -1% -1%);
+    }
+
+    .user-details {
+        margin-top: 32px;
+        text-align: center;
+
+        h1 {
+            font-size: 34px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 20px;
+            color: $primary;
+        }
+
+        ul {
+            display: block;
+            margin-top: 18px;
+
+            li {
+                display: inline-block;
+
+                i {
+                    margin: 0 8px;
+
+                }
+            }
+        }
+    }
+
+    .user-button {
+        position: $abs;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        height: 70px;
+
+        &::before {
+            @include bottomgradientBorder();
+            bottom: unset;
+            top: 0;
+            background-image: radial-gradient(ellipse, #dddddd 0%, rgba(255, 255, 255, 0) 70%) !important;
+        }
+
+        div {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            a {
+                color: $dark;
+                text-transform: uppercase;
+                font-size: 14px;
+
+                .btn-text-icon {
+                    margin-left: 10px;
+                }
+            }
+
+
+        }
+
+        div:nth-child(1) {
+            position: relative;
+
+            &::before {
+                @include bottomgradientBorder();
+                bottom: unset;
+                right: 0;
+                left: unset;
+                width: 1px;
+                height: 100%;
+                background-image: radial-gradient(ellipse, #dddddd 0%, rgba(255, 255, 255, 0) 70%) !important;
+            }
+        }
+    }
+}
