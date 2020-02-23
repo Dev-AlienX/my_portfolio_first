@@ -20,7 +20,7 @@ import { ContactComponent } from './contact/contact.component';
 export class AppComponent implements OnInit {
   @ViewChild('pages', { read: ViewContainerRef, static: true })
   pages: ViewContainerRef;
-  title = 'PortfolioV1';
+  title = 'my_portfolio_first';
   navLinks = [];
   constructor(private resolver: ComponentFactoryResolver) {}
 
