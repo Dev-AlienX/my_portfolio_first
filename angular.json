@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PortfolioV1": {
+    "my_portfolio_first": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/PortfolioV1",
+            "outputPath": "dist/my_portfolio_first",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "PortfolioV1:build"
+            "browserTarget": "my_portfolio_first:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "PortfolioV1:build:production"
+              "browserTarget": "my_portfolio_first:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PortfolioV1:build"
+            "browserTarget": "my_portfolio_first:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "PortfolioV1:serve"
+            "devServerTarget": "my_portfolio_first:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "PortfolioV1:serve:production"
+              "devServerTarget": "my_portfolio_first:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "PortfolioV1"
+  "defaultProject": "my_portfolio_first"
 }
