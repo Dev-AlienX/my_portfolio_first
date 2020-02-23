@@ -162,7 +162,7 @@
                     }
                     position: $rel;
                     text-align: center;
-                    // @include flexContent (1, 50%);
+                    @include flexContent (0, 0, 50%);
 
                     div {
                         width: 60px;
@@ -388,10 +388,10 @@
                 font-size: 16px;
                 font-weight: 400;
                 color: #646464;
-
-                @media (max-width : 560px) {
-                    text-align: center;
-                }
+                text-align:center;
+                // @media (max-width : 560px) {
+                //     text-align: center;
+                // }
             }
 
             // &.right-gradient::after {
