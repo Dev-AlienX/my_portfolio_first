@@ -1,0 +1,51 @@
+@import 'colors';
+
+$vw:100vw;
+$vh:100vh;
+
+$widthMax:100%;
+$heightMax:100%;
+
+$flex:flex;
+$flexSpace:space-between;
+$flexLeft:flex-start;
+$fleRight:flex-end;
+
+$center: center;
+$wrap:wrap;
+
+
+$abs:absolute;
+$rel:relative;
+
+$padding:0px;
+$margin:0px;
+
+$border: 2px solid $borderColor;
+$borderRadious:4px;
+
+$UserShadow:10px 10px 15px rgba(0, 0, 0, 0.05);
+
+$hrGradient:radial-gradient(ellipse at right, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$grid-columns:                12 !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$enable-grid-classes:                         true !default;
+$grid-row-columns:            6 !default;

@@ -1,0 +1,159 @@
+@import './variables';
+@import './colors';
+
+@mixin border {
+    border: $border;
+}
+
+@mixin border-radious ($radious, $radiousPosition: 'unset') {
+    @if $radiousPosition=='top-right' {
+        border-top-right-radius: $radious;
+    }
+
+    @else if $radiousPosition=='top-left' {
+        border-top-left-radius: $radious;
+    }
+
+    @else if $radiousPosition=='bottom-right' {
+        border-bottom-right-radius: $radious;
+    }
+
+    @else if $radiousPosition=='bottom-left' {
+        border-bottom-left-radius: $radious;
+    }
+
+    @else {
+        border-radius: $radious;
+    }
+}
+
+@mixin fullScreen {
+    width: $vw;
+    height: $vh;
+}
+
+@mixin fullBox {
+    width: $widthMax;
+    height: $heightMax;
+}
+
+@mixin box ($height, $width: false) {
+    @if $width {
+        height: $height;
+        width: $width;
+    }
+
+    @else {
+        height: $height;
+        width: $height;
+    }
+}
+
+@mixin flex {
+    display: flex;
+}
+
+@mixin flexPosition($xLine, $yLine) {
+    justify-content: $xLine;
+    align-items: $yLine;
+}
+
+@mixin flexMaster ($flexHeight, $flexWidht, $flexHorizontal, $flexVertical, $flexWrap:unset, $flexDir:unset) {
+    @include flex();
+    @include box ($flexHeight, $flexWidht);
+    @include flexPosition($flexHorizontal, $flexVertical);
+    flex-wrap: $flexWrap;
+    flex-direction: $flexDir;
+}
+
+// @debug percentage($number: 0.3);
+// @debug $basis + ' basis';
+// @debug $shrink  + ' shrink';
+
+@mixin flexContent ($grow:'unset', $shrink:'unset' ,$basis:'unset') {
+
+    @if $basis=='unset'and $shrink=='unset' {
+        flex: $grow;
+    }
+
+    @else if $grow=='unset'and $shrink=='unset' {
+        flex: $basis;
+    }
+
+    @else if $shrink=='unset' {
+        flex: $grow $basis;
+        max-width: $basis;
+        -ms-flex: $grow $shrink $basis;
+    }
+
+    @else {
+        flex: $grow $shrink $basis;
+        max-width: $basis;
+        -ms-flex: $grow $shrink $basis;
+    }
+}
+
+@mixin padding ($paddingTop: 'unset', $paddingRight: 'unset', $paddingBottom: 'unset', $paddingLeft: 'unset') {
+    @if $paddingRight=='unset'and $paddingBottom=='unset'and $paddingLeft=='unset' {
+        padding: $paddingTop;
+    }
+
+    @else if $paddingBottom=='unset'and $paddingLeft=='unset' {
+        padding: $paddingTop $paddingRight;
+    }
+
+    @else {
+        padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
+    }
+}
+
+@mixin margin ($marginTop: 'unset', $marginRight: 'unset', $marginBottom: 'unset', $marginLeft: 'unset') {
+    @if $marginRight=='unset'and $marginBottom=='unset'and $marginLeft=='unset' {
+        margin: $marginTop;
+    }
+
+    @else if $marginBottom=='unset'and $marginLeft=='unset' {
+        margin: $marginTop $marginRight;
+    }
+
+    @else {
+        margin: $marginTop $marginRight $marginBottom $marginLeft;
+    }
+}
+
+@mixin bottomgradientBorder {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: $hrGradient;
+}
+
+@mixin rightGradientBorder {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-image: radial-gradient(ellipse at top, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+@mixin borderXLineFull($position: 'top') {
+    @if $position=='top' {
+        top: 0;
+    }
+
+    @else if $position=='bottom' {
+        bottom: 0;
+    }
+
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: radial-gradient(ellipse at center, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
+}
