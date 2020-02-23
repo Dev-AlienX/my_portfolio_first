@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(private screenSize:ScreenResolutionService) {}
 
   ngOnInit() {
-    console.log(this.config);
+    // console.log(this.config);
   }
   navClicke(title) {
     this.navClicked.emit(title);
