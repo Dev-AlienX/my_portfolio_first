@@ -18,6 +18,9 @@ button,
     text-transform: uppercase;
     text-decoration: none;
     color: $dark;
+    &:disabled{
+        pointer-events: none;
+    }
 
     &:hover {
         color: $primary

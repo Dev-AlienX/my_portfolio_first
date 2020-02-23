@@ -11,7 +11,7 @@ export class UserCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.userName = 'Win CNG';
+    this.userName = 'Ganesh Vishwakarma';
     this.designetion = 'Web Devloper';
   }
 
