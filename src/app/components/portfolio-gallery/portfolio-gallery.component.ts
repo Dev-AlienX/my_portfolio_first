@@ -25,23 +25,9 @@ import {
   selector: 'portfolio-gallery',
   templateUrl: './portfolio-gallery.component.html',
   styleUrls: ['./portfolio-gallery.component.scss']
-  // animations: [
-  //   trigger("listAnimation", [
-  //     transition("* => *", [
-  //       // each time the binding value changes
-  //       query(":leave", [
-  //         stagger(100, [animate("0.5s", style({ opacity: 0 }))])
-  //       ] ,  {optional: true}),
-  //       query(":enter", [
-  //         style({ opacity: 0 }),
-  //         stagger(100, [animate("0.5s", style({ opacity: 1 }))])
-  //       ],  {optional: true})
-  //     ])
-  //   ])
-  // ]
 })
 export class PortfolioGalleryComponent implements OnInit, AfterViewInit {
-  constructor(private resolver: ComponentFactoryResolver) {}
+  constructor(private resolver: ComponentFactoryResolver) { }
   @ViewChild('modal', { read: ViewContainerRef, static: true })
   modal: ViewContainerRef;
   @ViewChild('cols', { read: ElementRef, static: true })
@@ -63,7 +49,7 @@ export class PortfolioGalleryComponent implements OnInit, AfterViewInit {
         ? null
         : this.filterBtn.push(x)
     );
-    this.totalColHeight = 1478;
+    this.totalColHeight = 1564;
     this.data = this.config;
   }
   ngAfterViewInit(): void {
@@ -83,14 +69,14 @@ export class PortfolioGalleryComponent implements OnInit, AfterViewInit {
     if (value !== 'all') {
       this.data = [];
       // tslint:disable-next-line: no-shadowed-variable
-      this.config.forEach(async element => {
+      this.config.forEach(element => {
         if (element.category === value) {
           this.data.push(element);
         }
-
-       await   this.calcColHeight();
-
       });
+      setTimeout(() => {
+        this.calcColHeight();
+      }, 100);
     } else {
       this.totalColHeight = 1478;
       this.data = this.config;
@@ -111,7 +97,7 @@ export class PortfolioGalleryComponent implements OnInit, AfterViewInit {
       console.log('less than 3', this.totalColHeight);
     } else {
       this.totalColHeight = tempNo / 2 + 90;
-      console.log('half ' , this.totalColHeight);
+      console.log('half ', this.totalColHeight);
     }
   }
 
