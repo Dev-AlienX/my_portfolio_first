@@ -39,8 +39,8 @@ export class PortfolioGalleryComponent implements OnInit, AfterViewInit {
   totalColHeight = 0;
   ngOnInit() {
     const tempBtn = [];
-    this.config.forEach(element => {
-      tempBtn.push({ name: element.category, active: false });
+    this.config.forEach(el => {
+      tempBtn.push({ name: el.category, active: false });
     });
 
     tempBtn.map(x =>
