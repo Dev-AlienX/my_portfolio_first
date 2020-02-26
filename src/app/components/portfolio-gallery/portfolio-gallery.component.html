@@ -1,4 +1,4 @@
-<div class="gallery-wrapper">
+<div class="gallery-wrapper" [ngClass]="{'hidden': sceleton}">
   <header>
     <div class="title">
       <p *ngIf="!title === false">Recent</p><span>Works</span>
@@ -33,3 +33,62 @@
   </main>
   <ng-container #modal></ng-container>
 </div>
+
+<div class="gallery-wrapper sceleton" *ngIf="sceleton" [ngClass]="{'show': sceleton}">
+  <header>
+    <div class="title">
+      <p *ngIf="!title === false">Recent</p><span>Works</span>
+    </div>
+    <ul class="gallery-btn">
+      <li *ngFor="let btn of filterBtn">
+        <a href="javascript:void(0)" [ngClass]="{'active': btn.active === true}" (click)="filterGallery(btn.name , $event)">
+        </a>
+      </li>
+    </ul>
+  </header>
+  <main>
+    <div class="row">
+      <div class="col">
+        <div class="box-item">
+          <div class="image">
+          </div>
+          <div class="desc">
+            <a href="javascript:void(0)" class="name has-popup"></a>
+            <div class="category"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="box-item">
+          <div class="image">
+          </div>
+          <div class="desc">
+            <a href="javascript:void(0)" class="name has-popup"></a>
+            <div class="category"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="box-item">
+          <div class="image">
+          </div>
+          <div class="desc">
+            <a href="javascript:void(0)" class="name has-popup"></a>
+            <div class="category"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col" >
+        <div class="box-item">
+          <div class="image">
+          </div>
+          <div class="desc">
+            <a href="javascript:void(0)" class="name has-popup"></a>
+            <div class="category"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
