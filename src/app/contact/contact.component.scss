@@ -11,6 +11,11 @@
     background: $light;
     overflow-y: scroll;
     position: $rel;
+    @media (max-width : 768px) {
+        border-radius: $borderRadious;
+        // margin-bottom: 6px;
+        height: auto;
+    }
 
     header.contact-header,
     footer.contact-footer {
@@ -105,9 +110,6 @@
                     padding: 11px 0;
                     margin-bottom: 2px;
                     position: $rel;
-                    @media (max-width: 560px) {
-                        width: 100%;
-                    }
 
                     &:after {
                         @include bottomgradientBorder();
@@ -140,11 +142,6 @@
             .col {
                 position: relative;
                 @include padding (15px);
-
-                @media (max-width: 560px) {
-                    @include flexContent(0,0,100%);
-                }
-                
             }
         }
     }

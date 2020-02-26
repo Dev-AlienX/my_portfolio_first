@@ -5,11 +5,12 @@
     <nav>
       <navbar [config]="navLinks" (navClicked)="clickedNav($event)" ></navbar>
     </nav>
-    <div class="userCard">
+    <div class="userCard" *ngIf="notMobileScreen">
       <user-card></user-card>
     </div>
-    <div class="pages">
+    <div class="pages" (window:resize)="screenSize($event)">
       <ng-container #pages></ng-container>
+      <ng-container #allPages></ng-container>
     </div>
   </main>
 </div>

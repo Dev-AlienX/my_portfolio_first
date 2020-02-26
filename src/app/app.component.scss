@@ -57,7 +57,7 @@
             flex-wrap: wrap;
         }
 
-        @media (max-width: 560px) {
+        @media (max-width : 768px) {
             width: 100%;
             padding: 67px 6px 0 6px;
             margin: unset;
@@ -101,7 +101,7 @@
             flex-basis: 80px;
             z-index: 22;
 
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                     position: fixed;
                     left: 0;
                     top: 0;
@@ -118,7 +118,7 @@
             background: transparent;
             margin-left: 8px;
             
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                 position: relative;
                 // top: 80px;
                 width:100%;
@@ -139,7 +139,7 @@
             padding: 15px 0;
             background: transparent;
 
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                  position: relative;
                 width: 100%;
                 height: auto;

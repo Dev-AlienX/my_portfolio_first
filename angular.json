@@ -121,8 +121,13 @@
               "devServerTarget": "my_portfolio_first:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "my_portfolio_first"
 }
