@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ScreenResolutionService } from "../services/screen-resolution.service";
+import { ScreenResolutionService } from '../services/screen-resolution.service';
 
 @Component({
   selector: 'navbar',
@@ -16,12 +16,13 @@ export class NavbarComponent implements OnInit {
   constructor(private screenSize:ScreenResolutionService) {}
 
   ngOnInit() {
-    // console.log(this.config);
   }
-  navClicke(title) {
-    this.navClicked.emit(title);
+  navClicke(e) {
+    this.navClicked.emit(e);
     this.config.forEach(elm => {
-      if (elm.title === title) {
+      // tslint:disable-next-line:prefer-const
+      let btnName = (e.currentTarget.innerText).toLowerCase();
+      if (elm.title === btnName) {
         elm.active = true;
       } else {
         elm.active = false;
@@ -29,10 +30,4 @@ export class NavbarComponent implements OnInit {
     });
 
   }
-  // onResize(event) {
-  //   debugger
-  //  this.screenWidth = this.screenSize.getWidth();
-  //  console.log(this.screenWidth);
-   
-  // }
 }
