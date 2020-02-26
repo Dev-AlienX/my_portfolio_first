@@ -12,8 +12,10 @@
     overflow-y: scroll;
     position: $rel;
 
-    @media (max-width : 560px) {
+    @media (max-width : 768px) {
         border-radius: $borderRadious;
+        margin-bottom: 6px;
+        height: auto;
     }
 
     header.about-header,
@@ -89,7 +91,7 @@
 
             .row .col {
                
-                @media (max-width : 560px) {
+                @media (max-width : 768px) {
                     @include flexContent(0,0,100%);
                 }
 
@@ -151,18 +153,18 @@
             .row {
                 position: $rel;
                 height: auto;
-                @media (max-width : 560px) {
+                @media (max-width : 768px) {
                     &::after{
                         display: none;
                     }
                 }
                 .col {
-                    @media (max-width : 560px) {
+                    @media (max-width : 768px) {
                         @include flexContent(0,0,100%);
                     }
                     position: $rel;
                     text-align: center;
-                    @include flexContent (0, 0, 50%);
+                    // @include flexContent (1, 50%);
 
                     div {
                         width: 60px;
@@ -226,7 +228,7 @@
         }
 
         &.pricing .row .col {
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                 @include flexContent(0,0,100%);
             }
             position: $rel;
@@ -367,7 +369,7 @@
         }
 
         &.funFact .row .col {
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                 @include flexContent(0,0,50%);
             }
             // @include flexContent (1, 25%, 1);
@@ -388,10 +390,10 @@
                 font-size: 16px;
                 font-weight: 400;
                 color: #646464;
-                text-align:center;
-                // @media (max-width : 560px) {
-                //     text-align: center;
-                // }
+
+                @media (max-width : 768px) {
+                    text-align: center;
+                }
             }
 
             // &.right-gradient::after {
@@ -400,7 +402,7 @@
         }
 
         &.clients .row .col {
-            @media (max-width : 560px) {
+            @media (max-width : 768px) {
                 @include flexContent(0,0,50%);
             }
             position: $rel;
