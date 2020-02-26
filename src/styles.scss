@@ -14,34 +14,42 @@
 
 /******************common class*******************/
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    ::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
-    ::-webkit-scrollbar {
-        // width: 6px;
-        // background-color: transparent;
-    }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
 
-    ::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.5);
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
-    }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+  }
 }
 
+// @media screen and (max-width: 768px) {
+//   div {
+//     overflow-x: hidden;
+//     overflow-y: auto;
+//   }
+// }
+
+
 a {
-    text-decoration: none;
-    outline: none;
+  text-decoration: none;
+  outline: none;
 
 }
 
@@ -50,14 +58,14 @@ a {
 /******************common class*******************/
 /******************* grid ******************/
 .row {
-    @include flexMaster (100%, unset, unset, unset, $wrap, unset);
+  @include flexMaster (100%, unset, unset, unset, $wrap, unset);
 
 
 }
 
 .col {
-    // @include flexContent(1);
-    @include padding(30px);
+  // @include flexContent(1);
+  @include padding(30px);
 }
 
 // .col-1 {
