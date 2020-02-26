@@ -237,7 +237,7 @@
     }
 
     header {
-        @include flexMaster (auto, 100%, $flexSpace, $center);
+        @include flexMaster (auto, 100%, $flexSpace, $center, $wrap);
         text-transform: capitalize;
         position: $rel;
         height: 80px;
@@ -250,6 +250,14 @@
             @include bottomgradientBorder();
             background-image: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%)
         }
+         @media (max-width: 768px) {
+             .title{
+                 width: 100%;
+             }
+             ul{
+                 width: 100%;
+             }
+         }
 
         .title {
             p {

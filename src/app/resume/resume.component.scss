@@ -10,7 +10,7 @@
     border-top-right-radius: $borderRadious;
     border-bottom-right-radius: $borderRadious;
     background: $light;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     position: $rel;
     @media (max-width : 768px) {
         border-radius: $borderRadious;
@@ -151,7 +151,7 @@
 
             .row {
                 height: fit-content;
-                margin-bottom: 30px;
+                // margin-bottom: 30px;
                 &>.col{
                     @media (max-width : 768px) {
                         @include flexContent(0,0,100%);
