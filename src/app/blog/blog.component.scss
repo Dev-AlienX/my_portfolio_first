@@ -11,6 +11,11 @@
     background: $light;
     overflow-y: scroll;
     position: $rel;
+    @media (max-width : 768px) {
+        border-radius: $borderRadious;
+        margin-bottom: 6px;
+        height: auto;
+    }
 
     .blog-header,
     .blog-footer {
