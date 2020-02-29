@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
         icon: 'fa-paint-brush'
       },
       {
-        title: 'blogs',
+        title: 'blog',
         active: false,
         icon: 'fa-comment-alt'
       },
@@ -76,18 +76,20 @@ export class AppComponent implements OnInit {
   screenSize(e) {
     this.resolution = window.document.body.offsetWidth;
     if (e.target.window.innerWidth === window.document.body.offsetWidth) {
-      this.resolution = window.document.body.offsetWidth;
+      // this.resolution = window.document.body.offsetWidth;
       if (this.resolution < 1200) {
         this.loadAllPages();
       }
     }
   }
   clickedNav(evnt) {
-    // console.log(this.resolution < 1200);
     if (this.resolution < 1200) {
+      const componentName = evnt.currentTarget.innerText.toLowerCase()
+      document.getElementsByTagName(componentName)[0].scrollIntoView();
+      window.scrollBy(0, -60);
     } else {
       // tslint:disable-next-line:prefer-const
-      let navTitle = (evnt.currentTarget.innerText).toLowerCase();
+      let navTitle = evnt.currentTarget.innerText.toLowerCase();
       this.allPages.clear();
       switch (navTitle) {
         case 'about':
@@ -99,7 +101,7 @@ export class AppComponent implements OnInit {
         case 'works':
           this.loadWorks();
           break;
-        case 'blogs':
+        case 'blog':
           this.loadBlogs();
           break;
         case 'contact':
@@ -109,6 +111,8 @@ export class AppComponent implements OnInit {
     }
   }
   loadAllPages() {
+    // debugger
+    this.allPages.clear();
     this.pages.clear();
     const componentFactoryAbout = this.resolver.resolveComponentFactory(
       AboutComponent

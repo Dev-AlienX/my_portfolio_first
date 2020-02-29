@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ScreenResolutionService } from '../services/screen-resolution.service';
+import { ScreenResolutionService } from '../../services/screen-resolution.service';
 
 @Component({
   selector: 'navbar',

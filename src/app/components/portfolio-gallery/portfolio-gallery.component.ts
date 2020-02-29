@@ -25,13 +25,13 @@ export class PortfolioGalleryComponent implements OnInit {
   cols: ElementRef;
   @Input() config = [];
   @Input() title = '';
-  dataLoaded = false;
   sceleton = true;
   filterBtn = [{ name: 'all', active: true }];
   data = [];
-  totalColHeight = 0;
-  allColWithHeight = 0;
+  totalColHeight = 'unset';
   colDetail = [];
+  innerWidthNew = window.document.body.offsetWidth;
+  currentCategory = '';
   ngOnInit() {
     const tempBtn = [];
     this.config.forEach(eleme => {
@@ -44,13 +44,17 @@ export class PortfolioGalleryComponent implements OnInit {
         ? null
         : this.filterBtn.push(x)
     );
-    // this.totalColHeight = 1478;
     this.data = this.config;
     setTimeout(() => {
       this.sceleton = false;
-      // this.calcColHeight();
       this.allColConfig('all');
     }, 2000);
+  }
+
+  screenSize(e) {
+    this.innerWidthNew = window.document.body.offsetWidth;
+    // console.log(this.currentCategory);
+    this.allColConfig(this.currentCategory);
   }
 
   filterGallery(value, e) {
@@ -77,7 +81,7 @@ export class PortfolioGalleryComponent implements OnInit {
     }
   }
   allColConfig(val) {
-    
+    this.currentCategory = val;
     const allCols = this.cols.nativeElement.children;
     let temlheight = 0;
     if (this.colDetail.length === 0) {
@@ -88,43 +92,49 @@ export class PortfolioGalleryComponent implements OnInit {
         });
       }
     }
-    this.totalColHeight = 0;
-    let extraPx = 60;
+    this.totalColHeight = ' ';
+    let extraPx = 70;
     this.colDetail.forEach(itm => {
-
       if (val === itm.category) {
         temlheight = temlheight + itm.colHeight;
       } else if (val === 'all') {
         temlheight = temlheight + itm.colHeight;
       }
     });
-    if (this.data.length < 2) {
-      this.totalColHeight = temlheight + extraPx;
-    } else if (this.data.length <= 5) {
-      extraPx = 90;
-      this.totalColHeight = temlheight / 2 + extraPx;
+
+    // console.log(this.innerWidthNew, 'innerWidth');
+    if (this.innerWidthNew < 768) {
+      this.totalColHeight = 'unset';
     } else {
-      this.totalColHeight = temlheight / 2 + extraPx;
-    }
-  }
-  calcColHeight() {
-    const allCols = this.cols.nativeElement.children;
-    let tempNo = 0;
-    if (this.data === allCols) {
-      for (const item of allCols) {
-        tempNo = tempNo + item.offsetHeight;
-      }
-      if (this.cols.nativeElement.children.length < 3) {
-        this.totalColHeight = tempNo + 60;
+      if (this.data.length < 2) {
+        this.totalColHeight = String(temlheight + extraPx) + 'px';
+      } else if (this.data.length <= 5) {
+        extraPx = 100;
+        this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';
       } else {
-        this.totalColHeight = tempNo / 2 + 90;
+        this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';
       }
-    } else {
-      setTimeout(() => {
-        this.calcColHeight();
-      }, 100);
     }
+    // console.log(this.totalColHeight,'height');
   }
+  // calcColHeight() {
+  //   const allCols = this.cols.nativeElement.children;
+  //   let tempNo = 0;
+  //   if (this.data === allCols) {
+  //     for (const item of allCols) {
+  //       tempNo = tempNo + item.offsetHeight;
+  //     }
+  //     if (this.cols.nativeElement.children.length < 3) {
+  //       this.totalColHeight = tempNo + 60;
+  //     } else {
+  //       this.totalColHeight = tempNo / 2 + 90;
+  //     }
+  //   } else {
+  //     setTimeout(() => {
+  //       this.calcColHeight();
+  //     }, 100);
+  //   }
+  // }
 
   showModal() {
     this.modal.clear();
