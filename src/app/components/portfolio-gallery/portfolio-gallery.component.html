@@ -1,4 +1,4 @@
-<div class="gallery-wrapper" [ngClass]="{'hidden': sceleton}">
+<div class="gallery-wrapper" [ngClass]="{'hidden': sceleton}" (window:resize)="screenSize($event)">
   <header>
     <div class="title">
       <p *ngIf="!title === false">Recent</p><span>Works</span>
@@ -12,7 +12,7 @@
     </ul>
   </header>
   <main>
-    <div class="row" #cols [ngStyle]="{'max-height.px': totalColHeight}" >
+    <div class="row" #cols [ngStyle]="{'max-height': totalColHeight}" >
       <div class="col" *ngFor="let item of data">
         <div class="box-item">
           <div class="image">
@@ -90,5 +90,6 @@
       </div>
     </div>
   </main>
+  <ng-container ></ng-container>
 </div>
 

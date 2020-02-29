@@ -13,7 +13,7 @@ import { InputTextComponent } from './components/input-text/input-text.component
 import { InputButtonComponent } from './components/input-button/input-button.component';
 import { MapComponent } from './components/map/map.component';
 import { SocialButtonsComponent } from './components/social-buttons/social-buttons.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { PortfolioGalleryComponent } from './components/portfolio-gallery/portfolio-gallery.component';

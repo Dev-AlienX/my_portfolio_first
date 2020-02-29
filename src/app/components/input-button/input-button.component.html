@@ -1,5 +1,5 @@
-<button href="javascript:void(0)" *ngIf="withIcon === false" (click)="onClickbutton($event)" [disabled]="disabled">{{text}}</button>
-<a href="javascript:void(0)" *ngIf="withIcon === true" class="button" onclick="$('#cform').submit(); return false;">
+<button *ngIf="withIcon === false" (click)="onClickbutton($event)">{{text}}</button>
+<a *ngIf="withIcon === true" href="#" class="button" onclick="$('#cform').submit(); return false;">
     <span class="text">{{text}}</span>
     <span class="arrow"></span>
 </a>

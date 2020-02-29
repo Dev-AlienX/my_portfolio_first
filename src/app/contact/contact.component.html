@@ -44,7 +44,7 @@
           <input-text [(inputValue)]="message" [placeholder]="'message'" [type]="'textarea'"></input-text>
       </div>
       <div class="col col-12">
-        <input-button [disabled]="true" [withIcon]="true" [text]="'Send Message'" (btnClick)="sendMail($event)"></input-button>
+        <input-button [disabled]="false" [withIcon]="true" [text]="'Send Message'" (btnClick)="sendMail($event)"></input-button>
       </div>
     </div>
   </section>
