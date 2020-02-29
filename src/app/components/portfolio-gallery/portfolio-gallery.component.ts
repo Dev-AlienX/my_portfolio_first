@@ -93,7 +93,7 @@ export class PortfolioGalleryComponent implements OnInit {
       }
     }
     this.totalColHeight = ' ';
-    let extraPx = 60;
+    let extraPx = 70;
     this.colDetail.forEach(itm => {
       if (val === itm.category) {
         temlheight = temlheight + itm.colHeight;
@@ -109,7 +109,7 @@ export class PortfolioGalleryComponent implements OnInit {
       if (this.data.length < 2) {
         this.totalColHeight = String(temlheight + extraPx) + 'px';
       } else if (this.data.length <= 5) {
-        extraPx = 90;
+        extraPx = 100;
         this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';
       } else {
         this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';

@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
         case 'works':
           this.loadWorks();
           break;
-        case 'blogs':
+        case 'blog':
           this.loadBlogs();
           break;
         case 'contact':
