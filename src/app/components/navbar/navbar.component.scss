@@ -4,115 +4,115 @@
 
 
 .navbar {
-    width: 72px;
-    background: $light;
-    position: relative;
-    display: block;
-    overflow: hidden;
-    font-size: 11px;
-    text-align: center;
-    font-weight: 500;
-    border-radius: $borderRadious;
+  width: 72px;
+  background: $light;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 500;
+  border-radius: $borderRadious;
 
 
+
+  ul {
+    li {
+      width: 100%;
+      display: inline-block;
+      padding: 13px 3px;
+      position: relative;
+
+      &::before {
+        @include bottomgradientBorder();
+        width: calc(100% + 6px);
+
+        @media (max-width: 764px) {
+          @include rightGradientBorder();
+          left: -18px !important;
+          width: 2px !important;
+        }
+      }
+
+      a {
+        height: 42.667px;
+        display: block;
+        // color: $dark;
+        color: #323232;
+        position: relative;
+        padding-top: 3px;
+
+        .navIcon {
+          display: flex;
+          width: fit-content;
+          height: fit-content;
+          margin: auto;
+          margin-bottom: 8px;
+          font-size: 9px;
+
+          &.workIcon {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            transform: scaleX(-1);
+
+            i {
+              position: absolute;
+
+            }
+
+            i:last-child {
+              z-index: 1;
+              color: white;
+              top: 3px;
+              left: 3px;
+            }
+          }
+        }
+
+        .navLink {
+          display: block;
+          width: 100%;
+          line-height: 15px;
+          font-size: 11px;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: #323232;
+        }
+
+        &:hover {
+
+          .navIcon,
+          .navLink {
+            color: $primary;
+          }
+        }
+
+        &.active {
+          color: $primary;
+
+          .navIcon,
+          .navLink {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 764px) {
+    @include box(auto, 100%);
+    box-shadow: 0px -1px 6px 2px lightgrey;
 
     ul {
-        li {
-            width: 100%;
-            display: inline-block;
-            padding: 13px 3px;
-            position: relative;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
 
-            &::before {
-                @include bottomgradientBorder();
-                width: calc(100% + 6px);
-
-                @media (max-width: 764px) {
-                    @include rightGradientBorder();
-                    left: -30px !important;
-                    width: 1.5px !important;
-                }
-            }
-
-            a {
-                height: 42.667px;
-                display: block;
-                // color: $dark;
-                color: #323232;
-                position: relative;
-                padding-top: 3px;
-
-                .navIcon {
-                    display: flex;
-                    width: fit-content;
-                    height: fit-content;
-                    margin: auto;
-                    margin-bottom: 8px;
-                    font-size: 9px;
-
-                    &.workIcon {
-                        position: relative;
-                        width: 18px;
-                        height: 18px;
-                        transform: scaleX(-1);
-
-                        i {
-                            position: absolute;
-
-                        }
-
-                        i:last-child {
-                            z-index: 1;
-                            color: white;
-                            top: 3px;
-                            left: 3px;
-                        }
-                    }
-                }
-
-                .navLink {
-                    display: block;
-                    width: 100%;
-                    line-height: 15px;
-                    font-size: 11px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    color: #323232;
-                }
-
-                &:hover {
-
-                    .navIcon,
-                    .navLink {
-                        color: $primary;
-                    }
-                }
-
-                &.active {
-                    color: $primary;
-
-                    .navIcon,
-                    .navLink {
-                        color: $primary;
-                    }
-                }
-            }
-        }
+      li {
+        width: max-content;
+      }
     }
-
-    @media (max-width: 764px) {
-        @include box(auto, 100%);
-        box-shadow: 0px -1px 6px 2px lightgrey;
-
-        ul {
-            display: inline-flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-
-            li {
-                width: max-content;
-            }
-        }
-    }
+  }
 }

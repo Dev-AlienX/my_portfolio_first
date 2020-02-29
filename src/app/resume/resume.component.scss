@@ -10,7 +10,8 @@
     border-top-right-radius: $borderRadious;
     border-bottom-right-radius: $borderRadious;
     background: $light;
-    // overflow-y: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: $rel;
 
     @media (max-width: 764px) {
