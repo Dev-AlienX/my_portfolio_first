@@ -5,13 +5,14 @@
 
 .contact-container {
     @include fullBox();
-    // max-width: 644px;
+    max-width: 644px;
     border-top-right-radius: $borderRadious;
     border-bottom-right-radius: $borderRadious;
     background: $light;
     // overflow-y: scroll;
     position: $rel;
-    @media (max-width : 768px) {
+
+    @media (max-width: 764px) {
         border-radius: $borderRadious;
         // margin-bottom: 6px;
         height: auto;
@@ -111,6 +112,10 @@
                     margin-bottom: 2px;
                     position: $rel;
 
+                    @media (max-width: 764px) {
+                        width: 100%;
+                    }
+
                     &:after {
                         @include bottomgradientBorder();
                         background-image: radial-gradient(ellipse at center, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
@@ -142,6 +147,10 @@
             .col {
                 position: relative;
                 @include padding (15px);
+
+                @media (max-width: 764px) {
+                    @include flexContent(0, 0, 100%);
+                }
             }
         }
     }

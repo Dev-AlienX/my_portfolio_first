@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./input-button.component.scss']
 })
 export class InputButtonComponent implements OnInit {
-  @Input() disabled :boolean;
+  @Input() disabled = false;
   @Input() text = '';
   @Input() withIcon = true;
   @Output() btnClick = new EventEmitter<any>();

@@ -12,7 +12,7 @@
     // overflow-y: scroll;
     position: $rel;
 
-    @media (max-width : 768px) {
+    @media (max-width: 764px) {
         border-radius: $borderRadious;
         margin-bottom: 6px;
         height: auto;
@@ -91,7 +91,7 @@
 
             .row .col {
                
-                @media (max-width : 768px) {
+                @media (max-width: 764px) {
                     @include flexContent(0,0,100%);
                 }
 
@@ -153,18 +153,18 @@
             .row {
                 position: $rel;
                 height: auto;
-                @media (max-width : 768px) {
+                @media (max-width: 764px) {
                     &::after{
                         display: none;
                     }
                 }
                 .col {
-                    @media (max-width : 768px) {
+                    @media (max-width: 764px) {
                         @include flexContent(0,0,100%);
                     }
                     position: $rel;
                     text-align: center;
-                    // @include flexContent (1, 50%);
+                    @include flexContent(1, 50%);
 
                     div {
                         width: 60px;
@@ -228,7 +228,7 @@
         }
 
         &.pricing .row .col {
-            @media (max-width : 768px) {
+            @media (max-width: 764px) {
                 @include flexContent(0,0,100%);
             }
             position: $rel;
@@ -369,7 +369,7 @@
         }
 
         &.funFact .row .col {
-            @media (max-width : 768px) {
+            @media (max-width: 764px) {
                 @include flexContent(0,0,50%);
             }
             // @include flexContent (1, 25%, 1);
@@ -391,7 +391,7 @@
                 font-weight: 400;
                 color: #646464;
 
-                @media (max-width : 768px) {
+                @media (max-width: 764px) {
                     text-align: center;
                 }
             }
@@ -402,7 +402,7 @@
         }
 
         &.clients .row .col {
-            @media (max-width : 768px) {
+            @media (max-width: 764px) {
                 @include flexContent(0,0,50%);
             }
             position: $rel;
