@@ -12,6 +12,6 @@ export class QuotesService {
   }
 
   public getJSON(): Observable<any> {
-    return this.http.get('../../assets/json/quotes.json');
+    return this.http.get('assets/json/quotes.json');
   }
 }
