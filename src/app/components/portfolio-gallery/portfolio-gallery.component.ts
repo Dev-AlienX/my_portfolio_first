@@ -51,11 +51,11 @@ export class PortfolioGalleryComponent implements OnInit {
     }, 2000);
   }
 
-  screenSize(e) {
-    this.innerWidthNew = window.document.body.offsetWidth;
-    // console.log(this.currentCategory);
-    this.allColConfig(this.currentCategory);
-  }
+  // screenSize(e) {
+  //   this.innerWidthNew = window.document.body.offsetWidth;
+  //   // console.log(this.currentCategory);
+  //   this.allColConfig(this.currentCategory);
+  // }
 
   filterGallery(value, e) {
     this.filterBtn.forEach(elm => {
