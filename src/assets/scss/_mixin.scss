@@ -5,7 +5,7 @@
     border: $border;
 }
 
-@mixin border-radious ($radious, $radiousPosition: 'unset') {
+@mixin border-radious ($radious, $radiousPosition: unset) {
     @if $radiousPosition=='top-right' {
         border-top-right-radius: $radious;
     }
@@ -70,22 +70,26 @@
 // @debug $basis + ' basis';
 // @debug $shrink  + ' shrink';
 
-@mixin flexContent ($grow:'unset', $shrink:'unset' ,$basis:'unset') {
+@mixin flexContent ($grow:unset, $shrink:unset ,$basis:unset) {
 
-    @if $basis=='unset'and $shrink=='unset' {
+    @if $basis==unset and $shrink==unset {
         flex: $grow;
     }
 
-    @else if $grow=='unset'and $shrink=='unset' {
+    @else if $grow==unset and $shrink==unset {
         flex: $basis;
     }
 
-    @else if $shrink=='unset' {
+    @else if $shrink==unset {
         flex: $grow $basis;
         max-width: $basis;
         -ms-flex: $grow $shrink $basis;
     }
-
+    @else if $basis == unset {
+        flex: $grow $shrink;
+        max-width: $shrink;
+        -ms-flex: $grow 0 $shrink;
+    }
     @else {
         flex: $grow $shrink $basis;
         max-width: $basis;
@@ -93,12 +97,12 @@
     }
 }
 
-@mixin padding ($paddingTop: 'unset', $paddingRight: 'unset', $paddingBottom: 'unset', $paddingLeft: 'unset') {
-    @if $paddingRight=='unset'and $paddingBottom=='unset'and $paddingLeft=='unset' {
+@mixin padding ($paddingTop: unset, $paddingRight: unset, $paddingBottom: unset, $paddingLeft: unset) {
+    @if $paddingRight==unset and $paddingBottom==unset and $paddingLeft==unset {
         padding: $paddingTop;
     }
 
-    @else if $paddingBottom=='unset'and $paddingLeft=='unset' {
+    @else if $paddingBottom==unset and $paddingLeft==unset {
         padding: $paddingTop $paddingRight;
     }
 
@@ -107,12 +111,12 @@
     }
 }
 
-@mixin margin ($marginTop: 'unset', $marginRight: 'unset', $marginBottom: 'unset', $marginLeft: 'unset') {
-    @if $marginRight=='unset'and $marginBottom=='unset'and $marginLeft=='unset' {
+@mixin margin ($marginTop: unset, $marginRight: unset, $marginBottom: unset, $marginLeft: unset) {
+    @if $marginRight==unset and $marginBottom==unset and $marginLeft==unset {
         margin: $marginTop;
     }
 
-    @else if $marginBottom=='unset'and $marginLeft=='unset' {
+    @else if $marginBottom==unsetand $marginLeft==unset {
         margin: $marginTop $marginRight;
     }
 
