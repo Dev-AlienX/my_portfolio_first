@@ -11,6 +11,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { WorksComponent } from './works/works.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,27 @@ export class AppComponent implements OnInit {
   title = 'PortfolioV1';
   notMobileScreen = true;
   navLinks = [];
-  constructor(private resolver: ComponentFactoryResolver) {}
+  count = 0;
+  singleLoaded = false;
+  allLoaded = false;
+  componentObj = [
+    {
+      component: AboutComponent, name: 'about'
+    },
+    {
+      component: ResumeComponent, name: 'resume'
+    },
+    {
+      component: WorksComponent, name: 'works'
+    },
+    {
+      component: BlogComponent, name: 'blog'
+    },
+    {
+      component: ContactComponent, name: 'contact'
+    },
+  ]
+  constructor(private resolver: ComponentFactoryResolver) { }
 
   resolution = window.document.body.offsetWidth;
 
@@ -33,12 +54,7 @@ export class AppComponent implements OnInit {
     if (this.resolution < 1200) {
       this.loadAllPages();
     } else {
-      this.allPages.clear();
-      this.pages.clear();
-      const componentFactory = this.resolver.resolveComponentFactory(
-        AboutComponent
-      );
-      this.pages.createComponent(componentFactory);
+      this.loadSinglePage();
     }
 
     this.navLinks = [
@@ -74,13 +90,35 @@ export class AppComponent implements OnInit {
   // }
 
   screenSize(e) {
+    this.count++;
     this.resolution = window.document.body.offsetWidth;
     if (e.target.window.innerWidth === window.document.body.offsetWidth) {
-      // this.resolution = window.document.body.offsetWidth;
       if (this.resolution < 1200) {
-        this.loadAllPages();
+        document.getElementById('testDiv').style.backgroundColor = 'gray';
+        document.getElementById('testDiv').innerText = this.count.toString();
+        if (!this.allLoaded) {
+          this.loadAllPages();
+          // this.singleLoaded = false
+        }
+
+      } else {
+        document.getElementById('testDiv').style.backgroundColor = 'red';
+        document.getElementById('testDiv').innerText = this.count.toString();
+        if (!this.singleLoaded) {
+          this.loadSinglePage();
+          // this.allLoaded = false;
+        }
       }
     }
+  }
+  getCompName(navTitle) {
+    let dynamicComp;
+    this.componentObj.forEach(el => {
+      if (navTitle === el.name) {
+        dynamicComp = el.component
+      }
+    });
+    return dynamicComp;
   }
   clickedNav(evnt) {
     if (this.resolution < 1200) {
@@ -91,6 +129,8 @@ export class AppComponent implements OnInit {
       // tslint:disable-next-line:prefer-const
       let navTitle = evnt.currentTarget.innerText.toLowerCase();
       this.allPages.clear();
+      const dynamicComponent = this.getCompName(navTitle);
+      this.loadDynamicComp(dynamicComponent);
       switch (navTitle) {
         case 'about':
           this.loadAbout();
@@ -110,6 +150,15 @@ export class AppComponent implements OnInit {
       }
     }
   }
+  loadDynamicComp(dynamicComponenty) {
+    this.pages.clear();
+    const componentFactory = this.resolver.resolveComponentFactory(
+      dynamicComponenty
+    );
+    this.pages.createComponent(componentFactory);
+    this.singleLoaded = true;
+  }
+
   loadAllPages() {
     // debugger
     this.allPages.clear();
@@ -135,6 +184,15 @@ export class AppComponent implements OnInit {
     this.allPages.createComponent(componentFactoryWorks);
     this.allPages.createComponent(componentFactoryBlogs);
     this.allPages.createComponent(componentFactoryContact);
+    this.allLoaded = true;
+  }
+  loadSinglePage() {
+    this.allPages.clear();
+    this.pages.clear();
+    const componentFactory = this.resolver.resolveComponentFactory(
+      AboutComponent
+    );
+    this.pages.createComponent(componentFactory);
   }
   loadAbout() {
     this.pages.clear();
@@ -142,6 +200,7 @@ export class AppComponent implements OnInit {
       AboutComponent
     );
     this.pages.createComponent(componentFactory);
+    this.singleLoaded = true;
   }
   loadResume() {
     this.pages.clear();
