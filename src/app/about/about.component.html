@@ -6,25 +6,24 @@
     </header>
     <div class="row">
       <div class="col ">
-        <p>I am Ganesh Vishakarma, web designer from Thane, maharashtra, India. I have rich experience in web site design and building
-          and customization, also I am good at wordpress. I love to talk with you about our unique.</p>
+        <p>{{aboutMe}}</p>
       </div>
       <div class="col ">
         <div class="details">
           <p>Age . . . . .</p>
-          <p>24</p>
+          <p>{{age}}</p>
         </div>
         <div class="details">
           <p>Residence . . . . .</p>
-          <p>India</p>
+          <p>{{Residence}}</p>
         </div>
         <div class="details">
           <p>Freelance . . . . .</p>
-          <p>Unavailable</p>
+          <p>{{Freelance}}</p>
         </div>
         <div class="details">
           <p>Address . . . . .</p>
-          <p>Thane, maharashtra</p>
+          <p>{{Address}}</p>
         </div>
       </div>
     </div>
@@ -34,14 +33,14 @@
       <p>my</p><span>services</span>
     </header>
     <div class="row">
-      <div class="col">
+      <div class="col" *ngFor="let service of myService">
         <div>
-          <i class="fas fa-code fa-lg"></i>
+          <i class="fas {{service.icon}} fa-lg"></i>
         </div>
-        <h5>Web Development</h5>
-        <p>Modern and mobile-ready website that will help you reach all of your marketing.</p>
+        <h5>{{service.TAG}}</h5>
+        <p>{{service.serviceDeatil}}</p>
       </div>
-      <div class="col">
+      <!-- <div class="col">
         <div>
           <i class="fas fa-music fa-lg"></i>
         </div>
@@ -61,7 +60,7 @@
         </div>
         <h5>Photography</h5>
         <p>Mature Photography, Mildlife Photography, Micro Photography</p>
-      </div>
+      </div> -->
     </div>
   </section>
   <!-- <section class="pricing">
@@ -128,13 +127,13 @@
       <p>fun</p><span>fact</span>
     </header>
     <div class="row">
-      <div class="col col-3 right-gradient">
+      <div class="col col-3 right-gradient" *ngFor="let item of funfact; let i=index">
         <div class="icon">
-          <i class="fas fa-compact-disc fa-2x"></i>
+          <i class="fas {{item.icon}} fa-2x"></i>
         </div>
-        <p>98* Photos Clicked</p>
+        <p>{{item.data}}</p>
       </div>
-      <div class="col col-3 right-gradient">
+      <!-- <div class="col col-3 right-gradient">
         <div class="icon">
           <i class="fas fa-trophy fa-2x"></i>
         </div>
@@ -151,7 +150,7 @@
           <i class="fas fa-flag fa-2x"></i>
         </div>
         <p>10 states Visited</p>
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="clients">
@@ -159,10 +158,10 @@
       <p>c</p><span>lients</span>
     </header>
     <div class="row">
-      <div class="col  right-gradient">
-        <img src="assets/img/client_1.png" alt="">
+      <div class="col  right-gradient" *ngFor="let client of clients">
+        <img src="{{client.url}}" alt="clients">
       </div>
-      <div class="col  right-gradient">
+      <!-- <div class="col  right-gradient">
         <img src="assets/img/client_2.png" alt="">
       </div>
       <div class="col  right-gradient">
@@ -170,7 +169,7 @@
       </div>
       <div class="col ">
         <img src="assets/img/client_4.png" alt="">
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="testimonials">
@@ -185,7 +184,7 @@
         <div class="user">
           <div><img src="/assets/img/man1.jpg" alt=""></div>
           <h5>{{writer}}</h5>
-          <p>Art Director</p>
+          <p>{{designation}}</p>
         </div>
       </div>
       <!-- <div class="slide" id="s2">

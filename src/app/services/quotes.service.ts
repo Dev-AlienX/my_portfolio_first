@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class QuotesService {
   constructor(private http: HttpClient) {
-    // this.getJSON().subscribe(data => {
-    // });
   }
 
   public getJSON(): Observable<any> {
