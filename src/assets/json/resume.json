@@ -210,7 +210,7 @@
       }
     ],
     "blog": [{
-      "img": "/assets/img/blog1.jpg",
+      "img": "assets/img/blog1.jpg",
       "type": "designe",
       "detail": "By spite about do of do allow blush",
       "date": [{
@@ -219,7 +219,7 @@
         "month": "jan"
       }]
     }, {
-      "img": "/assets/img/blog2.jpg",
+      "img": "assets/img/blog2.jpg",
       "type": "Coding",
       "detail": "Two Before Arrow Not Relied",
       "date": [{
@@ -228,7 +228,7 @@
         "month": "feb"
       }]
     }, {
-      "img": "/assets/img/blog3.jpg",
+      "img": "assets/img/blog3.jpg",
       "type": "Travel",
       "detail": "By spite about do of do allow blush",
       "date": [{
