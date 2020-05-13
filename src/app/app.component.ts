@@ -11,7 +11,8 @@ import { ResumeComponent } from './resume/resume.component';
 import { WorksComponent } from './works/works.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
-import { threadId } from 'worker_threads';
+import { ResumeDataService } from './services/resume-data.service';
+// import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-root',
@@ -31,26 +32,49 @@ export class AppComponent implements OnInit {
   allLoaded = false;
   componentObj = [
     {
-      component: AboutComponent, name: 'about'
+      component: AboutComponent,
+      name: 'about'
     },
     {
-      component: ResumeComponent, name: 'resume'
+      component: ResumeComponent,
+      name: 'resume'
     },
     {
-      component: WorksComponent, name: 'works'
+      component: WorksComponent,
+      name: 'works'
     },
     {
-      component: BlogComponent, name: 'blog'
+      component: BlogComponent,
+      name: 'blog'
     },
     {
-      component: ContactComponent, name: 'contact'
-    },
-  ]
-  constructor(private resolver: ComponentFactoryResolver) { }
+      component: ContactComponent,
+      name: 'contact'
+    }
+  ];
+  allData:any = [];
+  aboutData= [];
+  resumeSecData= [];
+  workData= [];
+  blogData= [];
+  ContactData= [];
+
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private resumeDataService: ResumeDataService
+  ) {}
 
   resolution = window.document.body.offsetWidth;
 
   ngOnInit() {
+    this.resumeDataService.getAllData().subscribe(data => {
+      this.allData.push(data[0]);
+      this.aboutData.push(data[0].about);
+      this.resumeSecData.push(data[0].resume);
+      this.workData.push(data[0].works);
+      this.blogData.push(data[0].blog);
+      this.ContactData.push(data[0].contact);
+    });
     if (this.resolution < 1200) {
       this.loadAllPages();
     } else {
@@ -92,37 +116,56 @@ export class AppComponent implements OnInit {
   screenSize(e) {
     this.count++;
     this.resolution = window.document.body.offsetWidth;
-    if (e.target.window.innerWidth === window.document.body.offsetWidth) {
+    if (e.target.window.innerWidth === window.document.body.offsetWidth ) {
       if (this.resolution < 1200) {
-        document.getElementById('testDiv').style.backgroundColor = 'gray';
-        document.getElementById('testDiv').innerText = this.count.toString();
         if (!this.allLoaded) {
           this.loadAllPages();
-          // this.singleLoaded = false
         }
-
       } else {
-        document.getElementById('testDiv').style.backgroundColor = 'red';
-        document.getElementById('testDiv').innerText = this.count.toString();
         if (!this.singleLoaded) {
           this.loadSinglePage();
-          // this.allLoaded = false;
         }
       }
     }
   }
+
+  scrollToTop(evnt) {
+    if (
+      document
+        .getElementsByClassName('about-container')[0]
+        .getBoundingClientRect().y < 70
+    ) {
+      this.navLinks.forEach(element => {
+        if (element.title === 'about') {
+          element.active = true;
+        }
+      });
+    } else {
+      this.navLinks.forEach(element => {
+        if (element.title === 'about') {
+          element.active = false;
+        }
+      });
+    }
+    // console.log(
+    //   document
+    //     .getElementsByClassName('about-container')[0]
+    //     .getBoundingClientRect().y
+    // );
+  }
+
   getCompName(navTitle) {
     let dynamicComp;
     this.componentObj.forEach(el => {
       if (navTitle === el.name) {
-        dynamicComp = el.component
+        dynamicComp = el.component;
       }
     });
     return dynamicComp;
   }
   clickedNav(evnt) {
     if (this.resolution < 1200) {
-      const componentName = evnt.currentTarget.innerText.toLowerCase()
+      const componentName = evnt.currentTarget.innerText.toLowerCase();
       document.getElementsByTagName(componentName)[0].scrollIntoView();
       window.scrollBy(0, -60);
     } else {
@@ -131,23 +174,6 @@ export class AppComponent implements OnInit {
       this.allPages.clear();
       const dynamicComponent = this.getCompName(navTitle);
       this.loadDynamicComp(dynamicComponent);
-      switch (navTitle) {
-        case 'about':
-          this.loadAbout();
-          break;
-        case 'resume':
-          this.loadResume();
-          break;
-        case 'works':
-          this.loadWorks();
-          break;
-        case 'blog':
-          this.loadBlogs();
-          break;
-        case 'contact':
-          this.loadContact();
-          break;
-      }
     }
   }
   loadDynamicComp(dynamicComponenty) {
@@ -180,10 +206,20 @@ export class AppComponent implements OnInit {
     );
 
     this.allPages.createComponent(componentFactoryAbout);
+    // const compRefAbout = this.allPages.createComponent(componentFactoryAbout);
+    // compRefAbout.instance.config = this.aboutData;
     this.allPages.createComponent(componentFactoryResume);
+    // const compRefResume = this.allPages.createComponent(componentFactoryResume);
+    // compRefResume.instance.config = this.resumeSecData;
     this.allPages.createComponent(componentFactoryWorks);
+    // const compRefWork = this.allPages.createComponent(componentFactoryWorks);
+    // compRefWork.instance.config = this.workData;
     this.allPages.createComponent(componentFactoryBlogs);
+    // const compRefBlog = this.allPages.createComponent(componentFactoryBlogs);
+    // compRefBlog.instance.config = this.blogData;
     this.allPages.createComponent(componentFactoryContact);
+    // const compRefContact = this.allPages.createComponent(componentFactoryBlogs);
+    // compRefContact.instance.config = this.ContactData;
     this.allLoaded = true;
   }
   loadSinglePage() {
@@ -191,42 +227,6 @@ export class AppComponent implements OnInit {
     this.pages.clear();
     const componentFactory = this.resolver.resolveComponentFactory(
       AboutComponent
-    );
-    this.pages.createComponent(componentFactory);
-  }
-  loadAbout() {
-    this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      AboutComponent
-    );
-    this.pages.createComponent(componentFactory);
-    this.singleLoaded = true;
-  }
-  loadResume() {
-    this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      ResumeComponent
-    );
-    this.pages.createComponent(componentFactory);
-  }
-  loadWorks() {
-    this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      WorksComponent
-    );
-    this.pages.createComponent(componentFactory);
-  }
-  loadBlogs() {
-    this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      BlogComponent
-    );
-    this.pages.createComponent(componentFactory);
-  }
-  loadContact() {
-    this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      ContactComponent
     );
     this.pages.createComponent(componentFactory);
   }

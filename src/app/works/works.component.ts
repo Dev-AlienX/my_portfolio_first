@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/animations';
+import { Component, OnInit, Input } from '@angular/core';
+import { ResumeDataService } from '../services/resume-data.service';
 
 @Component({
   selector: 'works',
@@ -13,11 +7,16 @@ import {
   styleUrls: ['./works.component.scss']
 })
 export class WorksComponent implements OnInit {
-  workList = [];
-  constructor() {}
+  workList;
+  workData:any = [];
+  workList2:any = [];
+  constructor(private resumeDataService: ResumeDataService) {}
 
   ngOnInit() {
-    this.workList = [
+    this.resumeDataService.getAllData().subscribe(data => {
+      this.workData.push(data[0].works);
+    });
+    this.workList2 = [
       {
         name: 'motercycle healmet',
         category: 'photo',

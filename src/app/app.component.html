@@ -1,12 +1,12 @@
 <div class="container">
   <div class="backgroundGradient">
   </div>
-  <main>
+  <main (window:scroll) = scrollToTop($event)>
     <nav>
       <navbar [config]="navLinks" (navClicked)="clickedNav($event)" ></navbar>
     </nav>
     <div class="userCard" *ngIf="notMobileScreen">
-      <user-card></user-card>
+      <user-card [config]="allData"></user-card>
     </div>
     <div class="pages" (window:resize)="screenSize($event)">
       <ng-container #pages></ng-container>

@@ -4,20 +4,20 @@
     <p>Latest</p><span>Posts</span>
   </header>
   <main>
-    <section>
+    <section *ngFor="let item of blogData">
       <div class="blog-image">
-        <div class="image"></div>
+        <div class="image"[style.background-image]="'url(' + item.img + ')'"></div>
         <div class="date-box">
-          <p>20</p>
-          <span>jan</span>
+          <p>{{item.date[0].day}}</p>
+          <span>{{item.date[1].month}}</span>
         </div>
       </div>
       <div class="text">
-        <h5>By spite about do of do allow blush</h5>
-        <p>Design</p>
+        <h5>{{item.detail}}</h5>
+        <p>{{item.type}}</p>
       </div>
     </section>
-    <section>
+    <!-- <section>
       <div class="blog-image">
         <div class="image"></div>
         <div class="date-box">
@@ -42,7 +42,7 @@
         <h5>By spite about do of do allow blush</h5>
         <p>Travel</p>
       </div>
-    </section>
+    </section> -->
   </main>
   <div class="blog-footer bottomGap"></div>
 </div>

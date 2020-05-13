@@ -19,6 +19,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { PortfolioGalleryComponent } from './components/portfolio-gallery/portfolio-gallery.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
+import { KeysPipe } from './pipe/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     UserCardComponent,
     ProgressBarComponent,
     PortfolioGalleryComponent,
-    ModalComponent
+    ModalComponent,
+    KeysPipe
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, BrowserAnimationsModule],
   providers: [],

@@ -34,9 +34,11 @@ export class PortfolioGalleryComponent implements OnInit {
   currentCategory = '';
   ngOnInit() {
     const tempBtn = [];
-    this.config.forEach(eleme => {
-      tempBtn.push({ name: eleme.category, active: false });
-    });
+    // setTimeout(() => {
+      this.config.forEach(eleme => {
+        tempBtn.push({ name: eleme.category, active: false });
+      });
+    // }, 1000);
 
     tempBtn.map(x =>
       this.filterBtn.filter(a => a.name === x.name && a.active === x.active)
@@ -48,7 +50,7 @@ export class PortfolioGalleryComponent implements OnInit {
     setTimeout(() => {
       this.sceleton = false;
       this.allColConfig('all');
-    }, 2000);
+    }, 1500);
   }
 
   // screenSize(e) {
