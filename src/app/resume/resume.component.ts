@@ -1,46 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/animations';
+import { Component, OnInit, Input } from '@angular/core';
+import { ResumeDataService } from '../services/resume-data.service';
 
 @Component({
   selector: 'resume',
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.scss'],
-  // styles: [
-  //   `
-  //     :host {
-  //       display: block;
-  //       overflow: hidden;
-  //       width:100%;
-  //       height:100%;
-  //     }
-  //   `
-  // ],
-  // animations: [
-  //   trigger('expand', [
-  //     state('in', style({ width: '*', opacity: '*'  })),
-  //     transition(':leave', [
-  //       style({ width: '*', opacity: '*' }),
-  //       animate(250, style({ width: 0 , opacity: 0 }))
-  //     ]),
-  //     transition(':enter', [
-  //       style({ width: 0 , opacity: 0 }),
-  //       animate(250, style({ width: '*', opacity: '*'  }))
-  //     ])
-  //   ])
-  // ],
-  // host: { '[@expand]': 'in' }
+  styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
+  resumeSecData: any = [];
+  experience: any = [];
+  education: any = [];
+  design: any = [];
+  language: any = [];
+  coding: any = [];
+  knowledge: any;
 
-  constructor() { }
+  constructor(private resumeDataService: ResumeDataService) {}
 
   ngOnInit() {
+    this.resumeDataService.getAllData().subscribe(data => {
+      this.resumeSecData.push(data[0].resume);
+      data[0].resume[0].cv[0].experience.forEach(element => {
+        this.experience.push(element);
+      });
+      data[0].resume[0].cv[0].education.forEach(element => {
+        this.education.push(element);
+      });
+      data[0].resume[0].mySkills[0].design.forEach(element => {
+        this.design.push(element);
+      });
+      data[0].resume[0].mySkills[0].languade.forEach(element => {
+        this.language.push(element);
+      });
+      data[0].resume[0].mySkills[0].coding.forEach(element => {
+        this.coding.push(element);
+      });
+      this.knowledge = data[0].resume[0].mySkills[0].knowledge;
+    });
   }
-
 }

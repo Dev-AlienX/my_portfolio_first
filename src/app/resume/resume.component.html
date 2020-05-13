@@ -11,29 +11,11 @@
           <p>EXPERIENCE</p>
         </div>
         <div class="row exp-detail">
-          <div class="col col-12">
-            <p class="date current">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
-          </div>
-          <div class="col col-12">
-            <p class="date">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
-          </div>
-          <div class="col col-12">
-            <p class="date">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
+          <div class="col col-12" *ngFor="let exp of experience">
+            <p class="date">{{exp.date}}</p>
+            <p class="name">{{exp.tag}}</p>
+            <p class="company">{{exp.place}}</p>
+            <p class="discription">{{exp.discription}}</p>
           </div>
         </div>
       </div>
@@ -43,29 +25,11 @@
           <p>EDUCATION</p>
         </div>
         <div class="row edu-detail">
-          <div class="col col-12">
-            <p class="date">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
-          </div>
-          <div class="col col-12">
-            <p class="date">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
-          </div>
-          <div class="col col-12">
-            <p class="date">2013 - Present</p>
-            <p class="name">Art Director</p>
-            <p class="company">Facebook Inc.</p>
-            <p class="discription">
-              Collaborate with creative and development teams on the execution of ideas.
-            </p>
+          <div class="col col-12" *ngFor="let edu of education">
+            <p class="date">{{edu.date}}</p>
+            <p class="name">{{edu.tag}}</p>
+            <p class="company">{{edu.place}}</p>
+            <p class="discription">{{edu.discription}}</p>
           </div>
         </div>
       </div>
@@ -83,17 +47,8 @@
           <p>DESIGN</p>
         </div>
         <div class="row design">
-          <div class="col col-12">
-            <progress-bar [value]="80" [name]="'Web Design'" [type]="'bar'"></progress-bar>
-          </div>
-          <div class="col col-12">
-            <progress-bar [value]="60" [name]="'Photo Editing'" [type]="'bar'"></progress-bar>
-          </div>
-          <div class="col col-12">
-            <progress-bar [value]="65" [name]="'UI'" [type]="'bar'"></progress-bar>
-          </div>
-          <div class="col col-12">
-            <progress-bar [value]="75" [name]="'Photography'" [type]="'bar'"></progress-bar>
+          <div class="col col-12" *ngFor="let Design of design">
+            <progress-bar [value]="Design.percent" [name]="Design.title" [type]="'bar'"></progress-bar>
           </div>
         </div>
       </div>
@@ -103,19 +58,9 @@
           <p>LANGUAGES</p>
         </div>
         <div class="row language">
-          <div class="col col-12">
-            <progress-bar [value]="70" [name]="'English'" [type]="'dots'"></progress-bar>
+          <div class="col col-12" *ngFor="let lang of language">
+            <progress-bar [value]="lang.value" [name]="lang.name" [type]="'dots'"></progress-bar>
           </div>
-          <div class="col col-12">
-            <progress-bar [value]="100" [name]="'hindi'" [type]="'dots'"></progress-bar>
-          </div>
-          <div class="col col-12">
-            <progress-bar [value]="80" [name]="'marathi'" [type]="'dots'"></progress-bar>
-          </div>
-          <!-- <div class="col col-12">
-            <progress-bar [value]="67" [name]="'French'" [type]="'dots'"></progress-bar>
-          </div> -->
-
         </div>
       </div>
       <div class="col col-6 right-gradient">
@@ -124,17 +69,8 @@
           <p>CODING</p>
         </div>
         <div class="row coding">
-          <div class="col col-5">
-            <progress-bar [value]="70" [name]="'Angular'" [type]="'donut'"></progress-bar>
-          </div>
-          <div class="col col-5">
-            <progress-bar [value]="70" [name]="'JavaScript'" [type]="'donut'"></progress-bar>
-          </div>
-          <div class="col col-5">
-            <progress-bar [value]="80" [name]="'SCSS'" [type]="'donut'"></progress-bar>
-          </div>
-          <div class="col col-5">
-            <progress-bar [value]="85" [name]="'HTML5 / CSS3'" [type]="'donut'"></progress-bar>
+          <div class="col col-5" *ngFor="let code of coding">
+            <progress-bar [value]="code.value" [name]="code.name" [type]="'donut'"></progress-bar>
           </div>
           <!-- </div> -->
         </div>
@@ -146,33 +82,9 @@
           <p>KNOWLEDGE</p>
         </div>
         <ul class="knolagdge">
-          <li>
+          <li *ngFor="let know of knowledge">
             <i class="fas fa-check fa-lg"></i>
-            <p>Website hosting</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>Mobile Responsive Website</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>Animation</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>Prototyping</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>Web Application</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>logo Designe</p>
-          </li>
-          <li>
-            <i class="fas fa-check fa-lg"></i>
-            <p>Photoshop</p>
+            <p>{{know}}</p>
           </li>
         </ul>
       </div>

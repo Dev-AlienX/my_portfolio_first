@@ -135,10 +135,12 @@
                             line-height: 20px;
                             padding: 1px 8px;
                             border-radius: 2px;
+                            text-align: right;
 
                             &:first-child {
                                 background-color: $primary;
                                 color: $light;
+                                text-align: left;
                             }
                         }
                     }

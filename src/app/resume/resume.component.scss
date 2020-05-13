@@ -105,8 +105,10 @@
                 @media (max-width: 764px) {
                     @include flexContent(0, 0, 100%);
                 }
+
                 @include padding(0px);
                 padding-bottom: 30px;
+                padding-top: 30px;
 
                 &::before {
                     @include borderXLineFull('top');
@@ -151,6 +153,19 @@
                     color: #646464;
                 }
             }
+
+            .exp-detail .col:first-child .date {
+                color: $primary;
+                border-color: $primary;
+            }
+
+            .exp-detail {
+                position: relative;
+
+                &::before {
+                    @include borderXLineFull('top');
+                }
+            }
         }
 
         &.skills {
@@ -167,28 +182,16 @@
                 }
             }
 
-            .design .col,
-            .language .col {
-
-                // @media (max-width: 764px) {
-                //     @include flexContent(0,0,100%);
-                // }
-
-
-                &::before {
-                    // @include borderXLineFull('top');
-                }
-            }
-
             .design .col {
-                // @media (max-width: 764px) {
-                //     @include flexContent(0,0,100%);
-                // }
+                &::before {
+                    @include borderXLineFull('top');
+                }
                 @include padding(20px, 0px);
             }
 
             .language {
                 position: $rel;
+
                 &::before {
                     @include borderXLineFull('top');
                     height: 1.5px;

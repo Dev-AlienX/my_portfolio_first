@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ScreenResolutionService } from '../../services/screen-resolution.service';
 
 @Component({
   selector: 'navbar',
@@ -13,7 +12,7 @@ export class NavbarComponent implements OnInit {
   @Output() navClicked = new EventEmitter();
   screenWidth = 0;
   visibility = 'visible';
-  constructor(private screenSize:ScreenResolutionService) {}
+  constructor() {}
 
   ngOnInit() {
   }
