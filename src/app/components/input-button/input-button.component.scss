@@ -22,6 +22,9 @@ button,
     &:hover {
         color: $primary
     }
+    &.disabled:hover{
+        color: unset;
+    }
 }
 
 .button {
@@ -82,4 +85,16 @@ button,
         }
 
     }
+    &.disabled:hover{
+        .arrow {
+            &::after {
+                background: #171717;
+            }
+
+            &::before {
+                background: #171717;
+            }
+        }
+    }
+
 }
