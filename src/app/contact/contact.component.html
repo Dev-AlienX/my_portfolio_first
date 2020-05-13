@@ -38,13 +38,12 @@
       </div>
       <div class="col col-6">
           <input-text [(inputValue)]="email" [placeholder]="'email'" [type]="'email'"></input-text>
-          <p>{{email}}</p>
       </div>
       <div class="col col-12">
           <input-text [(inputValue)]="message" [placeholder]="'message'" [type]="'textarea'"></input-text>
       </div>
-      <div class="col col-12">
-        <input-button [disabled]="false" [withIcon]="true" [text]="'Send Message'" (btnClick)="sendMail($event)"></input-button>
+      <div class="col col-12 vCenter">
+        <input-button [disabled]="true" [withIcon]="true" [text]="'Send Message'" (btnClick)="sendMail($event)"></input-button>
       </div>
     </div>
   </section>

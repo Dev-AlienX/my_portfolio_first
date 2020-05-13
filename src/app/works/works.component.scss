@@ -16,6 +16,12 @@
         height: auto;
     }
 
+    @media (max-width: 1199px) {
+        margin-bottom: 20px;
+        height: fit-content;
+        border-radius: $borderRadious;
+    }
+
     .row {
         .col {
             .box-item {

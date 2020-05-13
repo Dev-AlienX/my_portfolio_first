@@ -19,6 +19,15 @@
         position: relative;
     }
 
+    @media (max-width: 1199px) and (min-width: 561px) {
+        width: 582px;
+        height: 600px;
+        min-width: unset; 
+        border-radius: 4px;
+        background: white;
+        position: relative;
+    }
+
     .user-image {
         background-image: linear-gradient(to right, #9cadbe, #e3e7ef);
         width: 100%;
