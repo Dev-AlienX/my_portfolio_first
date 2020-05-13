@@ -36,7 +36,7 @@
         flex-wrap: unset;
 
         @media (max-width: 1300px) {
-            margin: 5vh 3vw;
+            margin: 1em 3vw;
             height: 90vh;
         }
 
@@ -45,12 +45,12 @@
             height: 90vh;
         }
 
-        @media (max-width: 1199px) {
+        @media (max-width: 1199px) and (min-width: 561px) {
             // padding: 0 15px 0 100px;
             // top: 20px;
             // left: 0;
             width: auto;
-            max-width: 700px;
+            max-width: 670px;
             max-height: initial;
             height: auto;
             transform: none;
@@ -107,6 +107,11 @@
                     top: 0;
                     @include box(auto, 100%);
             }
+            @media (max-width: 1199px) and (min-width: 765px) {
+                    position: fixed;
+                    left: 48px;
+                    @include box(auto, 100%);
+            }
         }
 
         .userCard {
@@ -129,6 +134,12 @@
                 flex-grow: 1;
                 margin-left: unset;
             }
+            @media (max-width: 1199px) and (min-width: 765px) {
+                position: relative;
+                width: 582px;
+                height: 600px;
+                margin-left: 83px;
+            }
         }
 
         .pages {
@@ -146,6 +157,9 @@
                 flex-grow: 1;
                 padding: 7px 0;
                 background: transparent;
+            }
+            @media (max-width: 1199px) and (min-width: 765px) {
+                margin-left: 83px;
             }
         }
     }

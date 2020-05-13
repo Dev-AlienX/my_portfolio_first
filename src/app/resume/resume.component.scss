@@ -20,6 +20,12 @@
         height: auto;
     }
 
+    @media (max-width: 1199px) and (min-width: 765px) {
+        margin-bottom: 20px;
+        height: fit-content;
+        border-radius: $borderRadious;
+    }
+
     section {
         @include box (auto, auto);
 
