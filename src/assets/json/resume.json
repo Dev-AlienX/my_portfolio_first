@@ -1,8 +1,8 @@
   [{
     "name": "Ganesh Vishwakarma",
     "age": 24,
-    "email": "vishwakatrma.ganesh15@gamil.com",
-    "mobile": "8898634832",
+    "email": "Vishwakarma.ganesh15@gamil.com",
+    "mobile": "8898****32",
     "resedence": "india",
     "address": "Thane, maharashtra",
     "Freelance": "unavalable",
@@ -77,36 +77,36 @@
     "resume": [{
       "cv": [{
         "experience": [{
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
-        }, {
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
-        }, {
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
+          "date": "2019 - present",
+          "tag": "Web Engineer",
+          "place": "GEP Solution",
+          "discription":"working as frontend devloper, AngularJS, Angular 5, SCSS."
+        },{
+          "date": "2018 - 2019",
+          "tag": "Associate Web Engineer",
+          "place": "GEP Solution",
+          "discription":"did 6 months internship, worked as frontend devloper, AngularJS, CSS."
         }],
         "education": [{
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
+          "date": "2010",
+          "tag": "SSC",
+          "place": "54%",
+          "discription":"Gautam Hindi High School, Thane."
         }, {
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
+          "date": "2012",
+          "tag": "HSC",
+          "place": "57%",
+          "discription":"Janan Sarita junior College, Mulund, Mumbai."
         }, {
-          "date": "2013 - present",
-          "tag": "Art Director",
-          "place": "Facebook Inc.",
-          "discription":"Collaborate with creative and development teams on the execution of ideas."
+          "date": "2015",
+          "tag": "B.Com",
+          "place": "51%",
+          "discription":"NKTT College of Commerce, Thane."
+        }, {
+          "date": "2019",
+          "tag": "Master of Computer Application",
+          "place": "59%",
+          "discription":"NCRD's SIMS, Nerul, Thane."
         }]
       }],
       "mySkills": [{
@@ -210,31 +210,31 @@
       }
     ],
     "blog": [{
-      "img": "assets/img/blog1.jpg",
-      "type": "designe",
+      "img": "assets/img/BlogImg3.jpeg",
+      "type": "Travel",
       "detail": "By spite about do of do allow blush",
       "date": [{
         "day": "20"
       }, {
-        "month": "jan"
+        "month": "aug"
       }]
     }, {
-      "img": "assets/img/blog2.jpg",
-      "type": "Coding",
+      "img": "assets/img/BlogImg2.jpeg",
+      "type": "Travel",
       "detail": "Two Before Arrow Not Relied",
       "date": [{
-        "day": "23"
+        "day": "28"
       }, {
-        "month": "feb"
+        "month": "jun"
       }]
     }, {
-      "img": "assets/img/blog3.jpg",
+      "img": "assets/img/BlogImg1.jpeg",
       "type": "Travel",
       "detail": "By spite about do of do allow blush",
       "date": [{
-        "day": "22"
+        "day": "21"
       }, {
-        "month": "jun"
+        "month": "may"
       }]
     }],
     "contact": [{
