@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, AfterContentInit } from '@angular/core';
+import { ContactServiceService } from '../services/contact-service.service';
 
 @Component({
   selector: 'user-card',
@@ -9,7 +10,8 @@ export class UserCardComponent implements OnInit {
   @Input() config: any = [];
   userName: string;
   designetion: string;
-  constructor() {}
+  viewContact: boolean;
+  constructor(private contactService: ContactServiceService) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -19,10 +21,17 @@ export class UserCardComponent implements OnInit {
         this.ngOnInit();
       }
     }, 50);
+    this.contactService.currentView.subscribe(viewContact => this.viewContact = viewContact)
   }
 
   loadData() {
     this.userName = this.config[0].name;
     this.designetion = this.config[0].designetion;
+  }
+
+  goToContact(e) {
+    this.contactService.changeView(true)
+    console.log('event' , e);
+
   }
 }
