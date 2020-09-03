@@ -115,6 +115,7 @@
                 @include padding(0px);
                 padding-bottom: 30px;
                 padding-top: 30px;
+                min-height: 205px;
 
                 &::before {
                     @include borderXLineFull('top');
@@ -122,7 +123,7 @@
 
                 .date {
                     font-size: 13px;
-                    border: 1px solid #eeeeee;
+                    border: 1px solid #9b9b9b;
                     border-radius: 4px;
                     color: #eeeeee;
                     font-weight: 400;
@@ -130,6 +131,7 @@
                     padding: 0px 5px;
                     margin-bottom: 11px;
                     width: fit-content;
+                    color: #9b9b9b;
 
                     &.current {
                         color: $primary;

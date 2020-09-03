@@ -12,6 +12,7 @@ import { WorksComponent } from './works/works.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { ResumeDataService } from './services/resume-data.service';
+import { ContactServiceService} from './services/contact-service.service';
 // import { threadId } from 'worker_threads';
 
 @Component({
@@ -58,10 +59,13 @@ export class AppComponent implements OnInit {
   workData= [];
   blogData= [];
   ContactData= [];
+  message: any;
+  // data: any;
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    private resumeDataService: ResumeDataService
+    private resumeDataService: ResumeDataService,
+    private contactService: ContactServiceService
   ) {}
 
   resolution = window.document.body.offsetWidth;
@@ -75,6 +79,9 @@ export class AppComponent implements OnInit {
       this.blogData.push(data[0].blog);
       this.ContactData.push(data[0].contact);
     });
+      this.contactService.currentMessage.subscribe(message => this.message = message);
+      console.log("message" , this.message);
+      
     if (this.resolution < 1200) {
       this.loadAllPages();
     } else {

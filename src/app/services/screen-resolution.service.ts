@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 export class ScreenResolutionService {
   constructor() {}
   public getWidth() {
-    debugger
     return window.innerWidth;
   }
   public getHeight() {
