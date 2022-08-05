@@ -1,0 +1,3 @@
+ng add angular-cli-ghpages --project my_portfolio_first
+
+ng deploy --base-href=/my_portfolio_first/
