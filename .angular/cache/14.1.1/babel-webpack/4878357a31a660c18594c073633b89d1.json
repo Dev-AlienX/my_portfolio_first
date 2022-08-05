@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { style, animate, transition } from '@angular/animations';\nexport function fadeIn() {\n  return [transition(':enter', [style({\n    opacity: 0\n  }), animate('400ms ease-in', style({\n    opacity: 1\n  }))])];\n}","map":null,"metadata":{},"sourceType":"module"}
