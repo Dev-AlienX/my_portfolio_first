@@ -1,13 +1,21 @@
-import { Component, OnInit, Input, AfterContentInit } from '@angular/core';
-import { ContactServiceService } from '../services/contact-service.service';
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterContentInit,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import { ContactServiceService } from "../services/contact-service.service";
 
 @Component({
-  selector: 'user-card',
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.scss']
+  selector: "user-card",
+  templateUrl: "./user-card.component.html",
+  styleUrls: ["./user-card.component.scss"],
 })
 export class UserCardComponent implements OnInit {
   @Input() config: any = [];
+  @Output() cardClicked = new EventEmitter();
   userName: string;
   designetion: string;
   viewContact: boolean;
@@ -21,7 +29,9 @@ export class UserCardComponent implements OnInit {
         this.ngOnInit();
       }
     }, 50);
-    this.contactService.currentView.subscribe(viewContact => this.viewContact = viewContact)
+    this.contactService.currentView.subscribe(
+      (viewContact) => (this.viewContact = viewContact)
+    );
   }
 
   loadData() {
@@ -29,9 +39,10 @@ export class UserCardComponent implements OnInit {
     this.designetion = this.config[0].designetion;
   }
 
-  goToContact(e) {
-    this.contactService.changeView(true)
-    console.log('event' , e);
-
+  goToContact(e, from) {
+    // this.cardClicked.emit(from);
+    this.cardClicked.emit({ event: e, from: from });
+    // this.contactService.changeView(true);
+    // console.log("event", e);
   }
 }

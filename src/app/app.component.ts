@@ -4,28 +4,28 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
   OnInit,
-  OnDestroy
-} from '@angular/core';
-import { AboutComponent } from './about/about.component';
-import { ResumeComponent } from './resume/resume.component';
-import { WorksComponent } from './works/works.component';
-import { BlogComponent } from './blog/blog.component';
-import { ContactComponent } from './contact/contact.component';
-import { ResumeDataService } from './services/resume-data.service';
-import { ContactServiceService} from './services/contact-service.service';
+  OnDestroy,
+} from "@angular/core";
+import { AboutComponent } from "./about/about.component";
+import { ResumeComponent } from "./resume/resume.component";
+import { WorksComponent } from "./works/works.component";
+import { BlogComponent } from "./blog/blog.component";
+import { ContactComponent } from "./contact/contact.component";
+import { ResumeDataService } from "./services/resume-data.service";
+import { ContactServiceService } from "./services/contact-service.service";
 // import { threadId } from 'worker_threads';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('pages', { read: ViewContainerRef, static: true })
+  @ViewChild("pages", { read: ViewContainerRef, static: true })
   pages: ViewContainerRef;
-  @ViewChild('allPages', { read: ViewContainerRef, static: true })
+  @ViewChild("allPages", { read: ViewContainerRef, static: true })
   allPages: ViewContainerRef;
-  title = 'PortfolioV1';
+  title = "PortfolioV1";
   notMobileScreen = true;
   navLinks = [];
   count = 0;
@@ -34,31 +34,31 @@ export class AppComponent implements OnInit {
   componentObj = [
     {
       component: AboutComponent,
-      name: 'about'
+      name: "about",
     },
     {
       component: ResumeComponent,
-      name: 'resume'
+      name: "resume",
     },
     {
       component: WorksComponent,
-      name: 'works'
+      name: "works",
     },
     {
       component: BlogComponent,
-      name: 'blog'
+      name: "blog",
     },
     {
       component: ContactComponent,
-      name: 'contact'
-    }
+      name: "contact",
+    },
   ];
-  allData:any = [];
-  aboutData= [];
-  resumeSecData= [];
-  workData= [];
-  blogData= [];
-  ContactData= [];
+  allData: any = [];
+  aboutData = [];
+  resumeSecData = [];
+  workData = [];
+  blogData = [];
+  ContactData = [];
   message: any;
   // data: any;
 
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
   resolution = window.document.body.offsetWidth;
 
   ngOnInit() {
-    this.resumeDataService.getAllData().subscribe(data => {
+    this.resumeDataService.getAllData().subscribe((data) => {
       this.allData.push(data[0]);
       this.aboutData.push(data[0].about);
       this.resumeSecData.push(data[0].resume);
@@ -79,9 +79,11 @@ export class AppComponent implements OnInit {
       this.blogData.push(data[0].blog);
       this.ContactData.push(data[0].contact);
     });
-      this.contactService.currentMessage.subscribe(message => this.message = message);
-      console.log("message" , this.message);
-      
+    this.contactService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
+    console.log("message", this.message);
+
     if (this.resolution < 1200) {
       this.loadAllPages();
     } else {
@@ -90,30 +92,30 @@ export class AppComponent implements OnInit {
 
     this.navLinks = [
       {
-        title: 'about',
+        title: "about",
         active: true,
-        icon: 'fa-user'
+        icon: "fa-user",
       },
       {
-        title: 'resume',
+        title: "resume",
         active: false,
-        icon: 'fa-file-alt'
+        icon: "fa-file-alt",
       },
       {
-        title: 'works',
+        title: "works",
         active: false,
-        icon: 'fa-paint-brush'
+        icon: "fa-paint-brush",
       },
       {
-        title: 'blog',
+        title: "blog",
         active: false,
-        icon: 'fa-comment-alt'
+        icon: "fa-comment-alt",
       },
       {
-        title: 'contact',
+        title: "contact",
         active: false,
-        icon: 'fa-at'
-      }
+        icon: "fa-at",
+      },
     ];
   }
   // ngAfterViewInit(): void {
@@ -123,7 +125,7 @@ export class AppComponent implements OnInit {
   screenSize(e) {
     this.count++;
     this.resolution = window.document.body.offsetWidth;
-    if (e.target.window.innerWidth === window.document.body.offsetWidth ) {
+    if (e.target.window.innerWidth === window.document.body.offsetWidth) {
       if (this.resolution < 1200) {
         if (!this.allLoaded) {
           this.loadAllPages();
@@ -139,17 +141,17 @@ export class AppComponent implements OnInit {
   scrollToTop(evnt) {
     if (
       document
-        .getElementsByClassName('about-container')[0]
+        .getElementsByClassName("about-container")[0]
         .getBoundingClientRect().y < 70
     ) {
-      this.navLinks.forEach(element => {
-        if (element.title === 'about') {
+      this.navLinks.forEach((element) => {
+        if (element.title === "about") {
           element.active = true;
         }
       });
     } else {
-      this.navLinks.forEach(element => {
-        if (element.title === 'about') {
+      this.navLinks.forEach((element) => {
+        if (element.title === "about") {
           element.active = false;
         }
       });
@@ -163,7 +165,7 @@ export class AppComponent implements OnInit {
 
   getCompName(navTitle) {
     let dynamicComp;
-    this.componentObj.forEach(el => {
+    this.componentObj.forEach((el) => {
       if (navTitle === el.name) {
         dynamicComp = el.component;
       }
@@ -183,11 +185,21 @@ export class AppComponent implements OnInit {
       this.loadDynamicComp(dynamicComponent);
     }
   }
+
+  cardClicked(evnt) {
+    console.log(evnt);
+    if (evnt.from == "contact") {
+      this.allPages.clear();
+      const dynamicComponent = this.getCompName("contact");
+      this.loadDynamicComp(dynamicComponent);
+    } else if (evnt.from == "download") {
+      alert("sonthing went wrong");
+    }
+  }
+
   loadDynamicComp(dynamicComponenty) {
     this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      dynamicComponenty
-    );
+    const componentFactory = this.resolver.resolveComponentFactory(dynamicComponenty);
     this.pages.createComponent(componentFactory);
     this.singleLoaded = true;
   }
@@ -196,21 +208,16 @@ export class AppComponent implements OnInit {
     // debugger
     this.allPages.clear();
     this.pages.clear();
-    const componentFactoryAbout = this.resolver.resolveComponentFactory(
-      AboutComponent
-    );
-    const componentFactoryResume = this.resolver.resolveComponentFactory(
-      ResumeComponent
-    );
-    const componentFactoryWorks = this.resolver.resolveComponentFactory(
-      WorksComponent
-    );
-    const componentFactoryBlogs = this.resolver.resolveComponentFactory(
-      BlogComponent
-    );
-    const componentFactoryContact = this.resolver.resolveComponentFactory(
-      ContactComponent
-    );
+    const componentFactoryAbout =
+      this.resolver.resolveComponentFactory(AboutComponent);
+    const componentFactoryResume =
+      this.resolver.resolveComponentFactory(ResumeComponent);
+    const componentFactoryWorks =
+      this.resolver.resolveComponentFactory(WorksComponent);
+    const componentFactoryBlogs =
+      this.resolver.resolveComponentFactory(BlogComponent);
+    const componentFactoryContact =
+      this.resolver.resolveComponentFactory(ContactComponent);
 
     this.allPages.createComponent(componentFactoryAbout);
     // const compRefAbout = this.allPages.createComponent(componentFactoryAbout);
@@ -232,9 +239,8 @@ export class AppComponent implements OnInit {
   loadSinglePage() {
     this.allPages.clear();
     this.pages.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      AboutComponent
-    );
+    const componentFactory =
+      this.resolver.resolveComponentFactory(AboutComponent);
     this.pages.createComponent(componentFactory);
   }
 }

@@ -42,6 +42,19 @@ export class WorksComponent implements OnInit {
         icon: 'fa-camera'
       },
       {
+        name: 'Staircase',
+        category: 'Music',
+        img: 'assets/img/work3.jpg',
+        icon: 'fa-camera'
+      },
+      {
+        name: 'Minimalism Shapes',
+        category: 'Video',
+        img: 'assets/img/work2.jpg',
+        icon: 'fa-camera'
+      },
+      
+      {
         name: 'Mobile Application',
         category: 'photo',
         img: 'assets/img/work5.jpg',
@@ -57,6 +70,12 @@ export class WorksComponent implements OnInit {
         name: 'Daylight Entrance',
         category: 'photo',
         img: 'assets/img/work7.jpg',
+        icon: 'fa-camera'
+      },
+      {
+        name: 'Minimalism Shapes',
+        category: 'Video',
+        img: 'assets/img/work2.jpg',
         icon: 'fa-camera'
       },
       {

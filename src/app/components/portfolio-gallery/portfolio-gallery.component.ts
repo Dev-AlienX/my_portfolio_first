@@ -5,43 +5,43 @@ import {
   ViewChild,
   ViewContainerRef,
   ComponentFactoryResolver,
-  ElementRef
-} from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
-import { trigger } from '@angular/animations';
-import { fadeIn } from '../animation/fadeIn';
+  ElementRef,
+} from "@angular/core";
+import { ModalComponent } from "../modal/modal.component";
+import { trigger } from "@angular/animations";
+import { fadeIn } from "../animation/fadeIn";
 
 @Component({
-  selector: 'portfolio-gallery',
-  templateUrl: './portfolio-gallery.component.html',
-  styleUrls: ['./portfolio-gallery.component.scss'],
-  animations: [trigger('fadeIn', fadeIn())]
+  selector: "portfolio-gallery",
+  templateUrl: "./portfolio-gallery.component.html",
+  styleUrls: ["./portfolio-gallery.component.scss"],
+  animations: [trigger("fadeIn", fadeIn())],
 })
 export class PortfolioGalleryComponent implements OnInit {
   constructor(private resolver: ComponentFactoryResolver) {}
-  @ViewChild('modal', { read: ViewContainerRef, static: true })
+  @ViewChild("modal", { read: ViewContainerRef, static: true })
   modal: ViewContainerRef;
-  @ViewChild('cols', { read: ElementRef, static: true })
+  @ViewChild("cols", { read: ElementRef, static: true })
   cols: ElementRef;
   @Input() config = [];
-  @Input() title = '';
+  @Input() title = "";
   sceleton = true;
-  filterBtn = [{ name: 'all', active: true }];
+  filterBtn = [{ name: "all", active: true }];
   data = [];
-  totalColHeight = 'unset';
+  totalColHeight = "unset";
   colDetail = [];
   innerWidthNew = window.document.body.offsetWidth;
-  currentCategory = '';
+  currentCategory = "";
   ngOnInit() {
     const tempBtn = [];
     // setTimeout(() => {
-      this.config.forEach(eleme => {
-        tempBtn.push({ name: eleme.category, active: false });
-      });
+    this.config.forEach((eleme) => {
+      tempBtn.push({ name: eleme.category, active: false });
+    });
     // }, 1000);
 
-    tempBtn.map(x =>
-      this.filterBtn.filter(a => a.name === x.name && a.active === x.active)
+    tempBtn.map((x) =>
+      this.filterBtn.filter((a) => a.name === x.name && a.active === x.active)
         .length > 0
         ? null
         : this.filterBtn.push(x)
@@ -49,18 +49,12 @@ export class PortfolioGalleryComponent implements OnInit {
     this.data = this.config;
     setTimeout(() => {
       this.sceleton = false;
-      this.allColConfig('all');
+      this.allColConfig("all");
     }, 1500);
   }
 
-  // screenSize(e) {
-  //   this.innerWidthNew = window.document.body.offsetWidth;
-  //   // console.log(this.currentCategory);
-  //   this.allColConfig(this.currentCategory);
-  // }
-
   filterGallery(value, e) {
-    this.filterBtn.forEach(elm => {
+    this.filterBtn.forEach((elm) => {
       if (elm.name === value) {
         elm.active = true;
       } else {
@@ -68,10 +62,10 @@ export class PortfolioGalleryComponent implements OnInit {
       }
     });
 
-    if (value !== 'all') {
+    if (value !== "all") {
       this.data = [];
       // tslint:disable-next-line: no-shadowed-variable
-      this.config.forEach(async element => {
+      this.config.forEach(async (element) => {
         if (element.category === value) {
           this.data.push(element);
         }
@@ -79,70 +73,51 @@ export class PortfolioGalleryComponent implements OnInit {
       this.allColConfig(value);
     } else {
       this.data = this.config;
-      this.allColConfig('all');
+      this.allColConfig("all");
     }
   }
   allColConfig(val) {
     this.currentCategory = val;
     const allCols = this.cols.nativeElement.children;
-    let temlheight = 0;
+    let tempHeight = 0;
     if (this.colDetail.length === 0) {
       for (const item of allCols) {
         this.colDetail.push({
-          category: item.getElementsByClassName('category')[0].textContent,
-          colHeight: item.offsetHeight
+          category: item.getElementsByClassName("category")[0].textContent,
+          colHeight: item.offsetHeight,
         });
       }
     }
-    this.totalColHeight = ' ';
+    this.totalColHeight = " ";
     let extraPx = 70;
-    this.colDetail.forEach(itm => {
+    this.colDetail.forEach((itm) => {
       if (val === itm.category) {
-        temlheight = temlheight + itm.colHeight;
-      } else if (val === 'all') {
-        temlheight = temlheight + itm.colHeight;
+        tempHeight = tempHeight + itm.colHeight;
+      } else if (val === "all") {
+        tempHeight = tempHeight + itm.colHeight;
       }
     });
 
     // console.log(this.innerWidthNew, 'innerWidth');
     if (this.innerWidthNew < 768) {
-      this.totalColHeight = 'unset';
+      this.totalColHeight = "unset";
     } else {
       if (this.data.length < 2) {
-        this.totalColHeight = String(temlheight + extraPx) + 'px';
-      } else if (this.data.length <= 5) {
+        this.totalColHeight = String(tempHeight + extraPx) + "px";
+      } else if (this.data.length <= 4) {
         extraPx = 100;
-        this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';
+        this.totalColHeight = String(tempHeight - 300 + extraPx) + "px";
       } else {
-        this.totalColHeight = String(temlheight / 2 + extraPx) + 'px';
+        extraPx = 100;
+        this.totalColHeight = String(tempHeight / 2 + extraPx) + "px";
       }
     }
-    // console.log(this.totalColHeight,'height');
   }
-  // calcColHeight() {
-  //   const allCols = this.cols.nativeElement.children;
-  //   let tempNo = 0;
-  //   if (this.data === allCols) {
-  //     for (const item of allCols) {
-  //       tempNo = tempNo + item.offsetHeight;
-  //     }
-  //     if (this.cols.nativeElement.children.length < 3) {
-  //       this.totalColHeight = tempNo + 60;
-  //     } else {
-  //       this.totalColHeight = tempNo / 2 + 90;
-  //     }
-  //   } else {
-  //     setTimeout(() => {
-  //       this.calcColHeight();
-  //     }, 100);
-  //   }
-  // }
 
   showModal() {
     this.modal.clear();
-    const componentFactory = this.resolver.resolveComponentFactory(
-      ModalComponent
-    );
+    const componentFactory =
+      this.resolver.resolveComponentFactory(ModalComponent);
     this.modal.createComponent(componentFactory);
   }
 }

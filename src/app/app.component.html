@@ -6,7 +6,7 @@
       <navbar [config]="navLinks" (navClicked)="clickedNav($event)" ></navbar>
     </nav>
     <div class="userCard" *ngIf="notMobileScreen">
-      <user-card [config]="allData"></user-card>
+      <user-card [config]="allData" (cardClicked)="cardClicked($event)"></user-card>
     </div>
     <div class="pages" (window:resize)="screenSize($event)">
       <ng-container #pages></ng-container>
